@@ -2,8 +2,9 @@
 
 
 
-GameScene::GameScene()
+GameScene::GameScene() : Scene("Game")
 {
+
 }
 
 
@@ -13,8 +14,7 @@ GameScene::~GameScene()
 
 bool GameScene::Initialise()
 {
-	std::cout << "Game Scene Initialised" << std::endl;
-	return true;
+	return Scene::Initialise();
 }
 
 void GameScene::Render()

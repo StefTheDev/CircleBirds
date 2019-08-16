@@ -20,7 +20,7 @@ GameManager::GameManager(std::string title)
 		renderer = SDL_CreateRenderer(window, -1, 0);
 		surface = SDL_GetWindowSurface(window);
 
-		SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 0xFF, 0xFF, 0xFF));
+		SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 0xFFFFFF, 0xFFFFFF, 0xFFFFFF));
 		SDL_UpdateWindowSurface(window);
 	}
 }
