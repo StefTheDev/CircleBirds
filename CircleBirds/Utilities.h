@@ -3,7 +3,10 @@
 //Native Includes
 #include <vector>
 #include <memory>
+#include <string>
 #include <iostream>
+#include <algorithm>
+#include <functional>
 
 //Dependency Includes
 #include <SDL.h>

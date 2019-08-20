@@ -1,26 +1,25 @@
 #include "GameScene.h"
 
-
-
 GameScene::GameScene() : Scene("Game")
 {
 
 }
 
-
 GameScene::~GameScene()
 {
 }
 
-bool GameScene::Initialise()
+bool GameScene::Initialise(SDL_Renderer* renderer)
 {
-	return Scene::Initialise();
-}
+	std::vector<std::shared_ptr<Entity>> entities;
 
-void GameScene::Render()
-{
-}
+	std::shared_ptr<Player> player = std::make_shared<Player>();
+	if (!player->Initialise(renderer)) return false;
 
-void GameScene::Update()
-{
+	entities.push_back(player);
+
+	//Enemies
+	//Obstacles
+
+	return Scene::Initialise(renderer, entities);
 }
