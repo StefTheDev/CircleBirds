@@ -20,7 +20,8 @@ GameManager::GameManager(std::string title)
 		renderer = SDL_CreateRenderer(window, -1, 0);
 		surface = SDL_GetWindowSurface(window);
 
-		SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 0xFFFFFF, 0xFFFFFF, 0xFFFFFF));
+		SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+		SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 0xFFF, 0xFFF, 0xFFF));
 		SDL_UpdateWindowSurface(window);
 	}
 }
@@ -38,15 +39,15 @@ bool GameManager::Initialise()
 
 	std::unique_ptr<MenuScene> menuScene = std::make_unique<MenuScene>();
 
-	if (!menuScene->Initialise()) return false;
+	if (!menuScene->Initialise(renderer)) return false;
 	scenes.push_back(std::move(menuScene));
 
 	std::unique_ptr<GameScene> gameScene = std::make_unique<GameScene>();
 
-	if (!gameScene->Initialise()) return false;
+	if (!gameScene->Initialise(renderer)) return false;
 	scenes.push_back(std::move(gameScene));
 	
-	gameState = MENU;
+	gameState = INGAME;
 
 	return true;
 }

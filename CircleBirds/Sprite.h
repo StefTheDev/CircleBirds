@@ -8,8 +8,15 @@
 class Sprite
 {
 public:
-	Sprite();
+	Sprite(const char * fileName, SDL_Renderer * renderer);
 	~Sprite();
+
+	SDL_Texture * GetTexture();
+	SDL_Renderer * GetRenderer();
+
+private:
+	SDL_Texture * texture;
+	SDL_Renderer * renderer;
 };
 
 #endif 
