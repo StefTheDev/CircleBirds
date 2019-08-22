@@ -68,16 +68,8 @@ void GameManager::HandleEvents()
 {
 	SDL_Event event;
 	SDL_PollEvent(&event);
-	switch (event.type)
-	{
-		case SDL_QUIT: {
-			case SDL_WINDOWEVENT_CLOSE: {
-				gameState = EXIT;
-			}
-		} break;
-		default:
-			break;
-	}
+
+	if (gameState != EXIT) scenes[gameState]->Event(event);
 }
 
 void GameManager::Update()

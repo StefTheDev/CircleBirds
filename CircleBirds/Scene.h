@@ -14,6 +14,7 @@ public:
 	~Scene();
 
 	virtual bool Initialise(SDL_Renderer * renderer, std::vector<std::shared_ptr<Entity>>& entities);
+	virtual void Event(SDL_Event event);
 	virtual void Render();
 	virtual void Update();
 

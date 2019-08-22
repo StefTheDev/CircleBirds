@@ -20,6 +20,13 @@ bool Scene::Initialise(SDL_Renderer * renderer, std::vector<std::shared_ptr<Enti
 	return true;
 }
 
+void Scene::Event(SDL_Event event)
+{
+	for (auto& entity : entities) {
+		entity->Event(event);
+	}
+}
+
 void Scene::Render()
 {
 	for (auto& entity : entities) {
