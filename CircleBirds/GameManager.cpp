@@ -21,7 +21,6 @@ GameManager::GameManager(std::string title)
 		surface = SDL_GetWindowSurface(window);
 
 		SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-		SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 0xFFF, 0xFFF, 0xFFF));
 		SDL_UpdateWindowSurface(window);
 	}
 }
@@ -36,6 +35,10 @@ bool GameManager::Initialise()
 	if (window == nullptr) return false;
 	if (renderer == nullptr) return false;
 	if (surface == nullptr) return false;
+
+
+	int imageFlags = IMG_INIT_JPG | IMG_INIT_PNG;
+	if (!IMG_Init(imageFlags) & imageFlags) return false;
 
 	std::unique_ptr<MenuScene> menuScene = std::make_unique<MenuScene>();
 
@@ -68,7 +71,9 @@ void GameManager::HandleEvents()
 	switch (event.type)
 	{
 		case SDL_QUIT: {
-
+			case SDL_WINDOWEVENT_CLOSE: {
+				gameState = EXIT;
+			}
 		} break;
 		default:
 			break;

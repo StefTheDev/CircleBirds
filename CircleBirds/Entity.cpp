@@ -13,10 +13,11 @@ Entity::~Entity()
 bool Entity::Initialise(std::shared_ptr<Sprite> sprite)
 {
 	this->sprite = sprite;
-	this->position = std::make_unique<Vector2>();
+	this->position = Vector2{ 0, 0 };
+	this->angle = 0.0f;
 
 	source.x = source.y = 0;
-	source.w = source.h = 32;
+	source.w = source.h = 64;
 	destination.w = destination.h = 64;
 
 	return true;
@@ -24,16 +25,30 @@ bool Entity::Initialise(std::shared_ptr<Sprite> sprite)
 
 void Entity::Render()
 {
-	SDL_RenderCopy(
+	SDL_RenderCopyEx(
 		sprite->GetRenderer(), 
-		sprite->GetTexture(), 
-		&source, 
-		&destination
+		sprite->GetTexture(),
+		&source,
+		&destination,
+		angle,
+		NULL,
+		SDL_FLIP_NONE
+	
 	);
 }
 
 void Entity::Update()
 {
-	destination.x = (int) position->GetX();
-	destination.y = (int) position->GetY();
+	destination.x = (int) position.x;
+	destination.y = (int) position.y;
+}
+
+void Entity::Transform(Vector2 position)
+{
+	this->position += position;
+}
+
+void Entity::Rotate(float angle)
+{
+	this->angle += angle;
 }

@@ -4,7 +4,6 @@
 #define ENTITY_H
 
 #include "Sprite.h"
-#include "Vector2.h"
 
 class Entity
 {
@@ -16,9 +15,15 @@ public:
 	virtual void Render();
 	virtual void Update();
 
+	void Transform(Vector2 position);
+	void Rotate(float angle);
+
 private:
+
+	Vector2 position;
+	float angle;
+
 	std::shared_ptr<Sprite> sprite;
-	std::unique_ptr<Vector2> position;
 	SDL_Rect source, destination;
 };
 
