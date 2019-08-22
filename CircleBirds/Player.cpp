@@ -23,12 +23,13 @@ bool Player::Initialise(SDL_Renderer * renderer)
 		}
 	}
 
-	return Entity::Initialise(std::make_shared<Sprite>("Player.png", renderer));
+	return Entity::Initialise(std::make_shared<Sprite>("Resources/Textures/Player.png", renderer));
 }
 
 void Player::Update()
 {
-	//Controller input...
+	Transform(Vector2{ 2.0f, 1 });
+	Rotate(2.0f);
 
 	return Entity::Update();
 }
