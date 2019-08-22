@@ -10,10 +10,10 @@ Entity::~Entity()
 
 }
 
-bool Entity::Initialise(std::shared_ptr<Sprite> sprite)
+bool Entity::Initialise(std::shared_ptr<Sprite> sprite, Vector2 position)
 {
 	this->sprite = sprite;
-	this->position = Vector2{ 0, 0 };
+	this->position = position;
 	this->angle = 0.0f;
 
 	source.x = source.y = 0;
@@ -41,6 +41,11 @@ void Entity::Update()
 {
 	destination.x = (int) position.x;
 	destination.y = (int) position.y;
+}
+
+void Entity::Event(SDL_Event event)
+{
+
 }
 
 void Entity::Transform(Vector2 position)
