@@ -11,9 +11,7 @@ public:
 	MenuScene();
 	~MenuScene();
 
-	bool Initialise() override;
-	void Render() override;
-	void Update() override;
+	bool Initialise(SDL_Renderer * renderer);
 
 private:
 };

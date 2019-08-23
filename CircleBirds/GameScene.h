@@ -4,6 +4,7 @@
 #define GAME_SCENE_H
 
 #include "Scene.h"
+#include "Player.h"
 
 class GameScene : public Scene
 {
@@ -11,9 +12,7 @@ public:
 	GameScene();
 	~GameScene();
 
-	bool Initialise() override;
-	void Render() override;
-	void Update() override;
+	bool Initialise(SDL_Renderer* renderer);
 };
 
 

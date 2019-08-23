@@ -1,30 +1,17 @@
 #include "MenuScene.h"
 
-
-
-MenuScene::MenuScene()
+MenuScene::MenuScene() : Scene("Menu")
 {
-}
 
+}
 
 MenuScene::~MenuScene()
 {
+
 }
 
-bool MenuScene::Initialise()
+bool MenuScene::Initialise(SDL_Renderer * renderer)
 {
-	std::cout << "Menu Scene Initialised" << std::endl;
-	return true;
-}
-
-void MenuScene::Render()
-{
-	std::cout << "Menu Scene Rendering" << std::endl;
-	Sleep(500);
-}
-
-void MenuScene::Update()
-{
-	std::cout << "Menu Scene Updating" << std::endl;
-	Sleep(500);
+	std::vector<std::shared_ptr<Entity>> entities;
+	return Scene::Initialise(renderer, entities);
 }
