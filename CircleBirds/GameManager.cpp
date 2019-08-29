@@ -1,5 +1,4 @@
 #include "GameManager.h"
-#include "Scene.h"
 
 //Scenes
 #include "MenuScene.h"
@@ -47,8 +46,9 @@ bool GameManager::Initialise()
 
 	std::unique_ptr<GameScene> gameScene = std::make_unique<GameScene>();
 
-	if (!gameScene->Initialise(renderer)) return false;
+	if (!gameScene->Initialise()) return false;
 	scenes.push_back(std::move(gameScene));
+
 	
 	gameState = INGAME;
 
@@ -74,6 +74,10 @@ void GameManager::HandleEvents()
 
 void GameManager::Update()
 {
+	timeLastFrame = timeCurrentFrame;
+	timeCurrentFrame = SDL_GetPerformanceCounter();
+
+	DELTA_TIME = (float)((timeCurrentFrame - timeLastFrame) / (float)SDL_GetPerformanceFrequency());
 	if (gameState != EXIT) scenes[gameState]->Update();
 }
 

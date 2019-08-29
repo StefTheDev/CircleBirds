@@ -13,7 +13,12 @@
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 #include <windows.h>
+#include <Box2D/Box2D.h>
 
+const float METER_TO_PIXEL = 60;
+const float PIXEL_TO_METER = 1 / METER_TO_PIXEL;
+
+extern float DELTA_TIME;
 
 struct Vector2
 {

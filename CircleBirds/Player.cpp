@@ -11,18 +11,11 @@ Player::~Player()
 
 }
 
-bool Player::Initialise(SDL_Renderer * renderer, Vector2 position)
+bool Player::Initialise(Vector2 position)
 {
-	for (int i = 0; i < SDL_NumJoysticks(); i++)
-	{
-		if (SDL_IsGameController(i))
-		{
-			gameController = SDL_GameControllerOpen(i);
-			break;
-		}
-	}
+	//Collider stuff
 
-	return Entity::Initialise(std::make_shared<Sprite>("Resources/Textures/Player.png", renderer), position);
+	return Entity::Initialise(position);
 }
 
 void Player::Update()
@@ -38,7 +31,7 @@ void Player::Render()
 	return Entity::Render();
 }
 
-void Player::Event(SDL_Event event)
+void Player::Listen(SDL_Event event)
 {
 	int mouseX, mouseY;
 	switch (event.type)
@@ -74,5 +67,5 @@ void Player::Event(SDL_Event event)
 			//Keyboard input
 		}
 	}
-	return Entity::Event(event);
+	return Entity::Listen(event);
 }

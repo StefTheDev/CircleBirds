@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{83F20407-6E60-4138-A77D-D6F9E9C60D64}</ProjectGuid>
     <RootNamespace>CircleBirds</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -74,12 +74,12 @@
     <LibraryPath>$(ProjectDir)\Dependencies\SDL\lib;$(ProjectDir)\Dependencies\SDL_image\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir)\Dependencies\SDL\include;$(ProjectDir)\Dependencies\SDL_image\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)\Dependencies\SDL\lib;$(ProjectDir)\Dependencies\SDL_image\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)\Dependencies\;$(ProjectDir)\Dependencies\Box2D;$(ProjectDir)\Dependencies\SDL\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\Dependencies\;$(ProjectDir)\Dependencies\Box2D;$(ProjectDir)\Dependencies\SDL\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(ProjectDir)\Dependencies\SDL\include;$(ProjectDir)\Dependencies\SDL_image\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)\Dependencies\SDL\lib;$(ProjectDir)\Dependencies\SDL_image\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)\Dependencies\;$(ProjectDir)\Dependencies\Box2D;$(ProjectDir)\Dependencies\SDL\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\Dependencies\;$(ProjectDir)\Dependencies\Box2D;$(ProjectDir)\Dependencies\SDL\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -137,25 +137,34 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BeginnerLevel.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameScene.cpp" />
+    <ClCompile Include="IntermediateLevel.cpp" />
+    <ClCompile Include="Level.cpp" />
     <ClCompile Include="MenuScene.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="TextLabel.cpp" />
+    <ClCompile Include="SpriteManager.cpp" />
+    <ClCompile Include="Utilities.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BeginnerLevel.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameScene.h" />
+    <ClInclude Include="IntermediateLevel.h" />
+    <ClInclude Include="Level.h" />
     <ClInclude Include="MenuScene.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="TextLabel.h" />
+    <ClInclude Include="SpriteManager.h" />
     <ClInclude Include="Utilities.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
