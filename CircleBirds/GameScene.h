@@ -1,8 +1,4 @@
 #pragma once
-
-#ifndef GAME_SCENE_H
-#define GAME_SCENE_H
-
 #include "Scene.h"
 #include "Player.h"
 
@@ -14,7 +10,4 @@ public:
 
 	bool Initialise(SDL_Renderer* renderer);
 };
-
-
-#endif
 

@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef GAME_MANAGER_H
-#define GAME_MANAGER_H
-
 #include "Utilities.h"
 
 class Scene;
@@ -48,6 +45,4 @@ private:
 
 	std::vector<std::unique_ptr<Scene>> scenes;
 };
-
-#endif // !GAME_MANAGER_H
 

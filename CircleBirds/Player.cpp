@@ -27,7 +27,7 @@ bool Player::Initialise(SDL_Renderer * renderer, Vector2 position)
 
 void Player::Update()
 {
-	Transform(Vector2{ 2.0f, -0.3f });
+	Transform(Vector2{ 2.0f, 3.0f });
 	Rotate(2.0f);
 
 	return Entity::Update();
