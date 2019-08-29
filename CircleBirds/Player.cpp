@@ -20,8 +20,8 @@ bool Player::Initialise(Vector2 position)
 
 void Player::Update()
 {
-	Transform(Vector2{ 0.2f, 0.2f });
-	Rotate(10.0f);
+	Transform(Vector2{ 2.0f, 3.0f });
+	Rotate(2.0f);
 
 	return Entity::Update();
 }
