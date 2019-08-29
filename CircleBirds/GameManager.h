@@ -20,6 +20,7 @@ enum GameState {
 	EXIT
 };
 
+
 class GameManager
 {
 public:
@@ -46,8 +47,11 @@ private:
 
 	GameState gameState;
 
+	Uint64 timeCurrentFrame, timeLastFrame;
+
 	std::vector<std::unique_ptr<Scene>> scenes;
 };
+
 
 #endif // !GAME_MANAGER_H
 

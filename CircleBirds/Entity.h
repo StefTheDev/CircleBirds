@@ -11,10 +11,12 @@ public:
 	Entity();
 	~Entity();
 
-	virtual bool Initialise(std::shared_ptr<Sprite> sprite, Vector2 position);
+	virtual bool Initialise(Vector2 position);
+	virtual void Listen(SDL_Event event) {}
 	virtual void Render();
 	virtual void Update();
-	virtual void Event(SDL_Event event);
+
+	void SetSprite(std::shared_ptr<Sprite> sprite);
 
 	void Transform(Vector2 position);
 	void Rotate(float angle);

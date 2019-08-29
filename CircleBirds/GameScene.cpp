@@ -10,17 +10,17 @@ GameScene::~GameScene()
 
 }
 
-bool GameScene::Initialise(SDL_Renderer* renderer)
+bool GameScene::Initialise()
 {
-	std::vector<std::shared_ptr<Entity>> entities;
+	return true;
+}
 
-	std::shared_ptr<Player> player = std::make_shared<Player>();
-	if (!player->Initialise(renderer, Vector2{ 10.0f, 50.0f})) return false;
+void GameScene::Update()
+{
+	levels[levelType]->Update();
+}
 
-	entities.push_back(player);
-
-	//Enemies
-	//Obstacles
-
-	return Scene::Initialise(renderer, entities);
+void GameScene::Render() 
+{
+	levels[levelType]->Render();
 }
