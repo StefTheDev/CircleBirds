@@ -10,9 +10,8 @@ Scene::~Scene()
 {
 }
 
-bool Scene::Initialise(SDL_Renderer * renderer, std::vector<std::shared_ptr<Entity>>& entities)
+bool Scene::Initialise(std::vector<std::shared_ptr<Entity>> entities)
 {
-	this->renderer = renderer;
 	this->entities = entities;
 
 	std::cout << string.c_str() << " Initialised" << std::endl;
@@ -27,10 +26,10 @@ void Scene::Event(SDL_Event event)
 	}
 }
 
-void Scene::Render()
+void Scene::Render(SDL_Renderer * renderer)
 {
 	for (auto& entity : entities) {
-		entity->Render();
+		entity->Render(renderer);
 	}
 }
 

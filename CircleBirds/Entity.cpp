@@ -22,10 +22,10 @@ bool Entity::Initialise(Vector2 position)
 	return true;
 }
 
-void Entity::Render()
+void Entity::Render(SDL_Renderer * renderer)
 {
 	SDL_RenderCopyEx(
-		sprite->GetRenderer(), 
+		renderer,
 		sprite->GetTexture(),
 		&source,
 		&destination,

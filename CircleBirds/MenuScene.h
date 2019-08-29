@@ -7,8 +7,7 @@ public:
 	MenuScene();
 	~MenuScene();
 
-
-	bool Initialise(SDL_Renderer * renderer);
+	bool Initialise();
 
 private:
 	SDL_Surface* menus;

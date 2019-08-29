@@ -11,7 +11,7 @@ TextLabel::~TextLabel()
 {
 }
 
-void TextLabel::Event(SDL_Event event)
+void TextLabel::Listen(SDL_Event event)
 {
 	switch (event.type)
 	{
@@ -20,5 +20,5 @@ void TextLabel::Event(SDL_Event event)
 			mouseY = event.motion.y;
 		}
 	}
-	return Entity::Event(event);
+	return Entity::Listen(event);
 }

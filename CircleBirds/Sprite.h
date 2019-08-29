@@ -8,11 +8,9 @@ public:
 	~Sprite();
 
 	SDL_Texture * GetTexture();
-	SDL_Renderer * GetRenderer();
 
 private:
 	SDL_Texture * texture;
-	SDL_Renderer * renderer;
 };
 
 

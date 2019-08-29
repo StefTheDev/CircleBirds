@@ -10,8 +10,9 @@ MenuScene::~MenuScene()
 
 }
 
-bool MenuScene::Initialise(SDL_Renderer * renderer)
+bool MenuScene::Initialise()
 {
 	std::vector<std::shared_ptr<Entity>> entities;
-	return Scene::Initialise(renderer, entities);
+
+	return Scene::Initialise(entities);
 }

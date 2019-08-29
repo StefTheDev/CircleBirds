@@ -7,7 +7,7 @@ public:
 	TextLabel();
 	~TextLabel();
 
-	void Event(SDL_Event event) override;
+	void Listen(SDL_Event event) override;
 
 private:
 	int mouseX, mouseY;

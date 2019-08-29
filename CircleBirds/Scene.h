@@ -3,7 +3,7 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-#include "Utilities.h"
+#include "SpriteManager.h"
 
 class Entity;
 
@@ -13,9 +13,9 @@ public:
 	Scene(std::string string);
 	~Scene();
 
-	virtual bool Initialise(SDL_Renderer * renderer, std::vector<std::shared_ptr<Entity>>& entities);
+	virtual bool Initialise(std::vector<std::shared_ptr<Entity>> entities);
 	virtual void Event(SDL_Event event);
-	virtual void Render();
+	virtual void Render(SDL_Renderer * renderer);
 	virtual void Update();
 
 	std::string ToString();
@@ -24,7 +24,6 @@ private:
 	std::vector<std::shared_ptr<Entity>> entities;
 	std::string string;
 
-	SDL_Renderer * renderer;
 };
 
 #endif

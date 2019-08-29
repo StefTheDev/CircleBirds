@@ -33,6 +33,8 @@ bool GameManager::Initialise()
 {
 	if (window == nullptr) return false;
 	if (renderer == nullptr) return false;
+	SpriteManager::GetInstance()->Load(renderer);
+
 	if (surface == nullptr) return false;
 
 
@@ -41,14 +43,14 @@ bool GameManager::Initialise()
 
 	std::unique_ptr<MenuScene> menuScene = std::make_unique<MenuScene>();
 
-	if (!menuScene->Initialise(renderer)) return false;
+	if (!menuScene->Initialise()) return false;
 	scenes.push_back(std::move(menuScene));
 
 	std::unique_ptr<GameScene> gameScene = std::make_unique<GameScene>();
 
 	if (!gameScene->Initialise()) return false;
 	scenes.push_back(std::move(gameScene));
-
+	
 	
 	gameState = INGAME;
 
@@ -59,7 +61,7 @@ void GameManager::Render()
 {
 	SDL_RenderClear(renderer);
 
-	if(gameState != EXIT) scenes[gameState]->Render();
+	if(gameState != EXIT) scenes[gameState]->Render(renderer);
 
 	SDL_RenderPresent(renderer);
 }

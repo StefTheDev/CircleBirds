@@ -11,6 +11,6 @@ public:
 	BeginnerLevel();
 	~BeginnerLevel();
 
-	bool Initialise(b2Vec2 gravity);
+	bool Initialise();
 };
 

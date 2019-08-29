@@ -12,21 +12,20 @@ enum SpriteType
 class SpriteManager
 {
 public:
+	SpriteManager();
 	~SpriteManager();
 
 	void Load(SDL_Renderer * renderer);
 
 	std::shared_ptr<Sprite> GetSprite(SpriteType spriteType);
 
-	static SpriteManager & GetInstance();
-	static void DestroyInstance();
+	static std::shared_ptr<SpriteManager> GetInstance();
 
 private:
-	SpriteManager();
 	std::vector<std::shared_ptr<Sprite>> sprites;
 
 protected:
 
-	static SpriteManager* spriteManager;
+	static std::shared_ptr<SpriteManager> spriteManager;
 };
 

@@ -1,13 +1,6 @@
 #pragma once
 #include "Scene.h"
-#include "Level.h"
-
-enum LevelType {
-	BEGINNER_LEVEL,
-	INTERMEDIATE_LEVEL
-};
-
-//Levels
+#include "Player.h"
 
 class GameScene : public Scene
 {
@@ -18,12 +11,8 @@ public:
 	bool Initialise();
 
 	void Update() override;
-	void Render() override;
 
 private:
-
-	std::vector<std::unique_ptr<Level>> levels;
-
-	LevelType levelType;
+	b2World * world;
 };
 

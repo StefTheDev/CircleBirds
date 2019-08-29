@@ -26,11 +26,6 @@ void Player::Update()
 	return Entity::Update();
 }
 
-void Player::Render()
-{
-	return Entity::Render();
-}
-
 void Player::Listen(SDL_Event event)
 {
 	int mouseX, mouseY;

@@ -9,8 +9,8 @@ public:
 	~Entity();
 
 	virtual bool Initialise(Vector2 position);
+	virtual void Render(SDL_Renderer * renderer);
 	virtual void Listen(SDL_Event event) {}
-	virtual void Render();
 	virtual void Update();
 
 	void SetSprite(std::shared_ptr<Sprite> sprite);
