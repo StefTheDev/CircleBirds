@@ -9,8 +9,7 @@ public:
 	GameScene();
 	~GameScene();
 
-	bool Initialise();
-
+	bool Load() override;
 	void Update() override;
 
 private:

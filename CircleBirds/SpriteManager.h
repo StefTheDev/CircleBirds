@@ -18,9 +18,9 @@ public:
 
 	void Load(SDL_Renderer * renderer);
 
-	std::shared_ptr<Sprite> GetSprite(SpriteType spriteType);
-
 	static std::shared_ptr<SpriteManager> GetInstance();
+
+	SDL_Texture * Texture(SpriteType spriteType);
 
 private:
 	std::vector<std::shared_ptr<Sprite>> sprites;

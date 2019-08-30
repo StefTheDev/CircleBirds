@@ -27,8 +27,8 @@ std::shared_ptr<SpriteManager> SpriteManager::GetInstance()
 	return spriteManager;
 }
 
-std::shared_ptr<Sprite> SpriteManager::GetSprite(SpriteType spriteType)
+SDL_Texture * SpriteManager::Texture(SpriteType spriteType)
 {
 	if (spriteType < 0 || spriteType >= sprites.size()) return nullptr;
-	return sprites[spriteType];
+	return sprites[spriteType]->GetTexture();
 }

@@ -4,7 +4,6 @@
 class TextLabel : public Entity
 {
 public:
-	TextLabel();
 	~TextLabel();
 
 	void Listen(SDL_Event event) override;

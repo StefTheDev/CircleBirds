@@ -4,19 +4,13 @@
 Scene::Scene(std::string string)
 {
 	this->string = string;
+
+	spriteManager = SpriteManager::GetInstance();
 }
 
 Scene::~Scene()
 {
-}
 
-bool Scene::Initialise(std::vector<std::shared_ptr<Entity>> entities)
-{
-	this->entities = entities;
-
-	std::cout << string.c_str() << " Initialised" << std::endl;
-
-	return true;
 }
 
 void Scene::Event(SDL_Event event)
@@ -38,6 +32,19 @@ void Scene::Update()
 	for (auto& entity : entities) {
 		entity->Update();
 	}
+}
+
+bool Scene::Load()
+{
+	std::cout << ToString().c_str() << " Loaded Successfully" << std::endl;
+	return true;
+}
+
+bool Scene::Unload()
+{
+	if (entities.empty()) return true;
+	entities.clear();
+	return true;
 }
 
 std::string Scene::ToString()

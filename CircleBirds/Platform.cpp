@@ -2,11 +2,6 @@
 
 
 
-Platform::Platform()
-{
-}
-
-
 Platform::~Platform()
 {
 }

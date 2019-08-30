@@ -1,12 +1,6 @@
 #include "TextLabel.h"
 
 
-
-TextLabel::TextLabel() : Entity()
-{
-}
-
-
 TextLabel::~TextLabel()
 {
 }

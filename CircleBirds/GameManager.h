@@ -37,6 +37,8 @@ public:
 
 	GameState GetState() const;
 
+	bool Switch(GameState gameState);
+
 private:
 	SDL_Window * window;
 	SDL_Renderer * renderer;
@@ -44,6 +46,7 @@ private:
 
 	GameState gameState;
 
+	int mouseX, mouseY;
 	Uint64 timeCurrentFrame, timeLastFrame;
 
 	std::vector<std::unique_ptr<Scene>> scenes;

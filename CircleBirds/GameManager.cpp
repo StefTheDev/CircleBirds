@@ -41,20 +41,10 @@ bool GameManager::Initialise()
 	int imageFlags = IMG_INIT_JPG | IMG_INIT_PNG;
 	if (!IMG_Init(imageFlags) & imageFlags) return false;
 
-	std::unique_ptr<MenuScene> menuScene = std::make_unique<MenuScene>();
+	scenes.push_back(std::make_unique<MenuScene>());
+	scenes.push_back(std::make_unique<GameScene>());
 
-	if (!menuScene->Initialise()) return false;
-	scenes.push_back(std::move(menuScene));
-
-	std::unique_ptr<GameScene> gameScene = std::make_unique<GameScene>();
-
-	if (!gameScene->Initialise()) return false;
-	scenes.push_back(std::move(gameScene));
-	
-	
-	gameState = INGAME;
-
-	return true;
+	return Switch(INGAME);
 }
 
 void GameManager::Render()
@@ -81,6 +71,11 @@ void GameManager::Update()
 
 	DELTA_TIME = (float)((timeCurrentFrame - timeLastFrame) / (float)SDL_GetPerformanceFrequency());
 	if (gameState != EXIT) scenes[gameState]->Update();
+
+	SDL_GetMouseState(&mouseX, &mouseY);
+
+	std::string string = "Circle Birds | " + scenes[gameState]->ToString() + " | Mouse Position: x:" + std::to_string(mouseX) + ", y:" + std::to_string(mouseY);
+	SDL_SetWindowTitle(window, string.c_str());
 }
 
 void GameManager::Clean()
@@ -108,4 +103,10 @@ SDL_Surface * GameManager::GetSurface()
 GameState GameManager::GetState() const
 {
 	return gameState;
+}
+
+bool GameManager::Switch(GameState gameState)
+{
+	if (scenes[this->gameState]->Unload()) this->gameState = gameState;
+	return scenes[this->gameState]->Load();
 }

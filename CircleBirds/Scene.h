@@ -13,16 +13,20 @@ public:
 	Scene(std::string string);
 	~Scene();
 
-	virtual bool Initialise(std::vector<std::shared_ptr<Entity>> entities);
 	virtual void Event(SDL_Event event);
 	virtual void Render(SDL_Renderer * renderer);
 	virtual void Update();
 
-	std::string ToString();
+	virtual bool Load();
+	virtual bool Unload();
 
+	std::string ToString();
 private:
-	std::vector<std::shared_ptr<Entity>> entities;
 	std::string string;
+
+protected:
+	std::vector<std::shared_ptr<Entity>> entities;
+	std::shared_ptr<SpriteManager> spriteManager;
 
 };
 
