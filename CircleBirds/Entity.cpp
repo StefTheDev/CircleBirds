@@ -7,17 +7,22 @@ Entity::Entity()
 
 Entity::~Entity()
 {
-
+	SDL_DestroyTexture(texture);
 }
 
-void Entity::Load(SDL_Texture * texture, Vector2 position)
+void Entity::Load(SDL_Rect rect)
 {
-	this->texture = texture;
-	this->position = position;
+	this->position = Vector2{ 
+		static_cast<float>(rect.x),
+		static_cast<float>(rect.y),
+	};
 
 	source.x = source.y = 0;
-	source.w = source.h = 64;
-	destination.w = destination.h = 64;
+	source.w = rect.w;
+	source.h = rect.h;
+
+	destination.w = source.w;
+	destination.h = source.h;
 }
 
 void Entity::Render(SDL_Renderer * renderer)
@@ -31,12 +36,7 @@ void Entity::Update()
 	destination.y = (int) position.y;
 }
 
-void Entity::Transform(Vector2 position)
+void Entity::Texture(SDL_Texture * texture)
 {
-	this->position += position;
-}
-
-void Entity::Rotate(float angle)
-{
-	this->angle += angle;
+	this->texture = texture;
 }

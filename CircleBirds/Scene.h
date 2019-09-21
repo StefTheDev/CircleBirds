@@ -4,6 +4,10 @@
 #define SCENE_H
 
 #include "SpriteManager.h"
+#include "FontManager.h"
+
+const int WINDOW_WIDTH = 1600;
+const int WINDOW_HEIGHT = 800;
 
 class Entity;
 
@@ -13,7 +17,7 @@ public:
 	Scene(std::string string);
 	~Scene();
 
-	virtual void Event(SDL_Event event);
+	virtual void Listen(SDL_Event event);
 	virtual void Render(SDL_Renderer * renderer);
 	virtual void Update();
 
@@ -21,13 +25,15 @@ public:
 	virtual bool Unload();
 
 	std::string ToString();
+
 private:
 	std::string string;
 
 protected:
 	std::vector<std::shared_ptr<Entity>> entities;
-	std::shared_ptr<SpriteManager> spriteManager;
 
+	std::shared_ptr<SpriteManager> spriteManager;
+	std::shared_ptr<FontManager> fontManager;
 };
 
 #endif

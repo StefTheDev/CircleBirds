@@ -4,12 +4,8 @@
 
 class Scene;
 
-const int WINDOW_WIDTH = 1200;
-const int WINDOW_HEIGHT = 800;
-
 const int FPS = 60;
 const int FRAME_DELAY = 1000 / FPS;
-
 
 enum GameState {
 	MENU,
@@ -17,11 +13,10 @@ enum GameState {
 	EXIT
 };
 
-
 class GameManager
 {
 public:
-	GameManager(std::string title);
+	GameManager(std::string string);
 	~GameManager();
 
 	bool Initialise();
@@ -49,5 +44,5 @@ private:
 	int mouseX, mouseY;
 	Uint64 timeCurrentFrame, timeLastFrame;
 
-	std::vector<std::unique_ptr<Scene>> scenes;
+	std::vector<std::unique_ptr<Scene>> scenes; 
 };

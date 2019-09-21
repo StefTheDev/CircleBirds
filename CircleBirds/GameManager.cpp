@@ -4,23 +4,16 @@
 #include "MenuScene.h"
 #include "GameScene.h"
 
-GameManager::GameManager(std::string title)
+GameManager::GameManager(std::string string)
 {
-	Uint32 flags = SDL_WINDOW_SHOWN;
-	if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
-	{
+	Uint32 flags = SDL_WINDOW_SHOWN | SDL_WINDOW_ALLOW_HIGHDPI;
+	if (SDL_Init(SDL_INIT_EVERYTHING) == 0) {
+	
 		SDL_DisplayMode displayMode;
 		SDL_GetCurrentDisplayMode(0, &displayMode);
 
-		auto width = displayMode.w, height = displayMode.h;
-		auto xPosition = (width - WINDOW_WIDTH) / 2, yPosition = (height - WINDOW_HEIGHT) / 2;
-
-		window = SDL_CreateWindow(title.c_str(), xPosition, yPosition, WINDOW_WIDTH, WINDOW_HEIGHT, flags);
+		window = SDL_CreateWindow(string.c_str(), (displayMode.w - WINDOW_WIDTH) / 2,(displayMode.h - WINDOW_HEIGHT) / 2, WINDOW_WIDTH, WINDOW_HEIGHT, flags);
 		renderer = SDL_CreateRenderer(window, -1, 0);
-		surface = SDL_GetWindowSurface(window);
-
-		SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-		SDL_UpdateWindowSurface(window);
 	}
 }
 
@@ -31,20 +24,21 @@ GameManager::~GameManager()
 
 bool GameManager::Initialise()
 {
+
 	if (window == nullptr) return false;
 	if (renderer == nullptr) return false;
 	SpriteManager::GetInstance()->Load(renderer);
 
-	if (surface == nullptr) return false;
-
-
 	int imageFlags = IMG_INIT_JPG | IMG_INIT_PNG;
 	if (!IMG_Init(imageFlags) & imageFlags) return false;
+
+
+	if (TTF_Init() == -1) return false;
 
 	scenes.push_back(std::make_unique<MenuScene>());
 	scenes.push_back(std::make_unique<GameScene>());
 
-	return Switch(INGAME);
+	return Switch(MENU);
 }
 
 void GameManager::Render()
@@ -61,7 +55,7 @@ void GameManager::HandleEvents()
 	SDL_Event event;
 	SDL_PollEvent(&event);
 
-	if (gameState != EXIT) scenes[gameState]->Event(event);
+	if (gameState != EXIT) scenes[gameState]->Listen(event);
 }
 
 void GameManager::Update()
@@ -93,11 +87,6 @@ SDL_Window * GameManager::GetWindow()
 SDL_Renderer* GameManager::GetRenderer()
 {
 	return renderer;
-}
-
-SDL_Surface * GameManager::GetSurface()
-{
-	return surface;
 }
 
 GameState GameManager::GetState() const

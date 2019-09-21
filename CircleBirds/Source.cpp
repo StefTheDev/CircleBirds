@@ -1,9 +1,9 @@
 #include "GameManager.h"
 
-std::unique_ptr<GameManager> gameManager;
 
 int main(int argc, char* argv[]) {
-	gameManager = std::make_unique<GameManager>("CircleBirds");
+	std::unique_ptr<GameManager> gameManager = std::make_unique<GameManager>("Circle Birds");
+
 	if (!gameManager->Initialise()) return 0;
 
 	Uint32 startFrame, timeFrame;

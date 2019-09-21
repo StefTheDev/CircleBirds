@@ -1,6 +1,5 @@
 #include "Player.h"
 
-
 Player::~Player()
 {
 
@@ -8,7 +7,7 @@ Player::~Player()
 
 void Player::Update()
 {
-	Transform(Vector2{ 1.0f, 0.0f });
+	position += 1.0f;
 	Entity::Update();
 }
 

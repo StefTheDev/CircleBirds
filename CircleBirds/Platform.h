@@ -5,6 +5,7 @@
 class Platform : public Entity
 {
 public:
+	Platform();
 	~Platform();
 
 private:

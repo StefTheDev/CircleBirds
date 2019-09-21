@@ -5,7 +5,9 @@ Scene::Scene(std::string string)
 {
 	this->string = string;
 
+
 	spriteManager = SpriteManager::GetInstance();
+	fontManager = FontManager::GetInstance();
 }
 
 Scene::~Scene()
@@ -13,7 +15,7 @@ Scene::~Scene()
 
 }
 
-void Scene::Event(SDL_Event event)
+void Scene::Listen(SDL_Event event)
 {
 	for (auto& entity : entities) {
 		entity->Listen(event);

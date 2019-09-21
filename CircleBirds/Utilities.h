@@ -7,6 +7,8 @@
 #include <iostream>
 #include <algorithm>
 #include <functional>
+#include <thread>
+#include <condition_variable>
 
 //Dependency Includes
 #include <SDL.h>
@@ -27,6 +29,8 @@ struct Vector2
 
 	Vector2& operator+=(const Vector2& v) { x += v.x; y += v.y; return *this; }
 	Vector2& operator-=(const Vector2& v) { x -= v.x; y -= v.y; return *this; }
+	Vector2& operator+=(const float& scalar) { x += scalar; y += scalar; return *this; }
+	Vector2& operator-=(const float& scalar) { x -= scalar; y -= scalar; return *this; }
 
 	friend Vector2 operator+(const Vector2& lhs, const Vector2& rhs) { return Vector2(lhs) += rhs; }
 	friend Vector2 operator-(const Vector2& lhs, const Vector2& rhs) { return Vector2(lhs) -= rhs; }
