@@ -1,10 +1,7 @@
 #pragma once
-
-#ifndef GAME_SCENE_H
-#define GAME_SCENE_H
-
 #include "Scene.h"
 #include "Player.h"
+#include "Platform.h"
 
 class GameScene : public Scene
 {
@@ -12,9 +9,10 @@ public:
 	GameScene();
 	~GameScene();
 
-	bool Initialise(SDL_Renderer* renderer);
+	bool Load() override;
+	void Update() override;
+
+private:
+	b2World * world;
 };
-
-
-#endif
 

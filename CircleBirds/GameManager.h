@@ -1,18 +1,11 @@
 #pragma once
 
-#ifndef GAME_MANAGER_H
-#define GAME_MANAGER_H
-
 #include "Utilities.h"
 
 class Scene;
 
-const int WINDOW_WIDTH = 1200;
-const int WINDOW_HEIGHT = 800;
-
 const int FPS = 60;
 const int FRAME_DELAY = 1000 / FPS;
-
 
 enum GameState {
 	MENU,
@@ -23,7 +16,7 @@ enum GameState {
 class GameManager
 {
 public:
-	GameManager(std::string title);
+	GameManager(std::string string);
 	~GameManager();
 
 	bool Initialise();
@@ -39,6 +32,8 @@ public:
 
 	GameState GetState() const;
 
+	bool Switch(GameState gameState);
+
 private:
 	SDL_Window * window;
 	SDL_Renderer * renderer;
@@ -46,8 +41,8 @@ private:
 
 	GameState gameState;
 
-	std::vector<std::unique_ptr<Scene>> scenes;
+	int mouseX, mouseY;
+	Uint64 timeCurrentFrame, timeLastFrame;
+
+	std::vector<std::unique_ptr<Scene>> scenes; 
 };
-
-#endif // !GAME_MANAGER_H
-

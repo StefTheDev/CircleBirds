@@ -4,33 +4,28 @@
 Scene::Scene(std::string string)
 {
 	this->string = string;
+
+
+	spriteManager = SpriteManager::GetInstance();
+	fontManager = FontManager::GetInstance();
 }
 
 Scene::~Scene()
 {
+
 }
 
-bool Scene::Initialise(SDL_Renderer * renderer, std::vector<std::shared_ptr<Entity>>& entities)
-{
-	this->renderer = renderer;
-	this->entities = entities;
-
-	std::cout << string.c_str() << " Initialised" << std::endl;
-
-	return true;
-}
-
-void Scene::Event(SDL_Event event)
+void Scene::Listen(SDL_Event event)
 {
 	for (auto& entity : entities) {
-		entity->Event(event);
+		entity->Listen(event);
 	}
 }
 
-void Scene::Render()
+void Scene::Render(SDL_Renderer * renderer)
 {
 	for (auto& entity : entities) {
-		entity->Render();
+		entity->Render(renderer);
 	}
 }
 
@@ -39,6 +34,19 @@ void Scene::Update()
 	for (auto& entity : entities) {
 		entity->Update();
 	}
+}
+
+bool Scene::Load()
+{
+	std::cout << ToString().c_str() << " Loaded Successfully" << std::endl;
+	return true;
+}
+
+bool Scene::Unload()
+{
+	if (entities.empty()) return true;
+	entities.clear();
+	return true;
 }
 
 std::string Scene::ToString()

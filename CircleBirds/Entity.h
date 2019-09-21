@@ -1,31 +1,22 @@
 #pragma once
 
-#ifndef ENTITY_H
-#define ENTITY_H
-
 #include "Sprite.h"
-
 class Entity
 {
 public:
 	Entity();
 	~Entity();
 
-	virtual bool Initialise(std::shared_ptr<Sprite> sprite, Vector2 position);
-	virtual void Render();
+	virtual void Load(SDL_Rect rect);
+	virtual void Render(SDL_Renderer * renderer);
+	virtual void Listen(SDL_Event event) {}
 	virtual void Update();
-	virtual void Event(SDL_Event event);
 
-	void Transform(Vector2 position);
-	void Rotate(float angle);
+	void Texture(SDL_Texture * texture);
 
-private:
-
-	Vector2 position;
-	float angle;
-
-	std::shared_ptr<Sprite> sprite;
+protected:
+	SDL_Texture* texture = nullptr;
+	Vector2 position, dimension;
+	float angle = 0.0f;
 	SDL_Rect source, destination;
 };
-
-#endif

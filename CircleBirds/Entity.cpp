@@ -7,34 +7,27 @@ Entity::Entity()
 
 Entity::~Entity()
 {
-
+	SDL_DestroyTexture(texture);
 }
 
-bool Entity::Initialise(std::shared_ptr<Sprite> sprite, Vector2 position)
+void Entity::Load(SDL_Rect rect)
 {
-	this->sprite = sprite;
-	this->position = position;
-	this->angle = 0.0f;
+	this->position = Vector2{ 
+		static_cast<float>(rect.x),
+		static_cast<float>(rect.y),
+	};
 
 	source.x = source.y = 0;
-	source.w = source.h = 64;
-	destination.w = destination.h = 64;
+	source.w = rect.w;
+	source.h = rect.h;
 
-	return true;
+	destination.w = source.w;
+	destination.h = source.h;
 }
 
-void Entity::Render()
+void Entity::Render(SDL_Renderer * renderer)
 {
-	SDL_RenderCopyEx(
-		sprite->GetRenderer(), 
-		sprite->GetTexture(),
-		&source,
-		&destination,
-		angle,
-		NULL,
-		SDL_FLIP_NONE
-	
-	);
+	SDL_RenderCopyEx(renderer, texture, &source, &destination, angle, NULL, SDL_FLIP_NONE);
 }
 
 void Entity::Update()
@@ -43,17 +36,7 @@ void Entity::Update()
 	destination.y = (int) position.y;
 }
 
-void Entity::Event(SDL_Event event)
+void Entity::Texture(SDL_Texture * texture)
 {
-
-}
-
-void Entity::Transform(Vector2 position)
-{
-	this->position += position;
-}
-
-void Entity::Rotate(float angle)
-{
-	this->angle += angle;
+	this->texture = texture;
 }
