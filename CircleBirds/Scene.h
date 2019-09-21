@@ -3,8 +3,7 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-#include "SpriteManager.h"
-#include "FontManager.h"
+#include "TextureManager.h"
 
 const int WINDOW_WIDTH = 1600;
 const int WINDOW_HEIGHT = 800;
@@ -32,8 +31,7 @@ private:
 protected:
 	std::vector<std::shared_ptr<Entity>> entities;
 
-	std::shared_ptr<SpriteManager> spriteManager;
-	std::shared_ptr<FontManager> fontManager;
+	std::shared_ptr<TextureManager> textureManager;
 };
 
 #endif

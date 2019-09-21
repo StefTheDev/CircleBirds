@@ -27,7 +27,6 @@ bool GameManager::Initialise()
 
 	if (window == nullptr) return false;
 	if (renderer == nullptr) return false;
-	SpriteManager::GetInstance()->Load(renderer);
 
 	int imageFlags = IMG_INIT_JPG | IMG_INIT_PNG;
 	if (!IMG_Init(imageFlags) & imageFlags) return false;
@@ -37,6 +36,8 @@ bool GameManager::Initialise()
 
 	scenes.push_back(std::make_unique<MenuScene>());
 	scenes.push_back(std::make_unique<GameScene>());
+
+	TextureManager::GetInstance()->Load(renderer);
 
 	return Switch(MENU);
 }
