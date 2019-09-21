@@ -78,6 +78,9 @@
     <ClCompile Include="TextLabel.cpp">
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
+    <ClCompile Include="PhysicsEntity.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
     <ClCompile Include="TextureManager.cpp">
       <Filter>Source Files\Managers</Filter>
     </ClCompile>
@@ -115,6 +118,9 @@
     </ClInclude>
     <ClInclude Include="TextureManager.h">
       <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsEntity.h">
+      <Filter>Header Files\Entities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

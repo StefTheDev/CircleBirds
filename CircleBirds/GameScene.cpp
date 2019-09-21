@@ -2,7 +2,7 @@
 
 GameScene::GameScene() : Scene("Game Scene")
 {
-
+	world = new b2World(b2Vec2{ 0.0f, 9.8f });
 }
 
 GameScene::~GameScene()
@@ -12,7 +12,6 @@ GameScene::~GameScene()
 
 bool GameScene::Load()
 {
-	world = new b2World(b2Vec2{ 0.0f, 9.8f });
 
 	std::shared_ptr<Platform> platform = std::make_shared<Platform>();
 	platform->Texture(textureManager->GetTexture(PLATFORM_ICE_SPRITE));
