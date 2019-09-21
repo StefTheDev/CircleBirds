@@ -6,8 +6,7 @@ Scene::Scene(std::string string)
 	this->string = string;
 
 
-	spriteManager = SpriteManager::GetInstance();
-	fontManager = FontManager::GetInstance();
+	textureManager = TextureManager::GetInstance();
 }
 
 Scene::~Scene()

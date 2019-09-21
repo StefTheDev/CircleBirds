@@ -28,7 +28,6 @@ public:
 
 	SDL_Window * GetWindow();
 	SDL_Renderer* GetRenderer();
-	SDL_Surface* GetSurface();
 
 	GameState GetState() const;
 
@@ -37,7 +36,6 @@ public:
 private:
 	SDL_Window * window;
 	SDL_Renderer * renderer;
-	SDL_Surface * surface;
 
 	GameState gameState;
 

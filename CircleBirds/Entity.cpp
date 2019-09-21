@@ -10,7 +10,7 @@ Entity::~Entity()
 	SDL_DestroyTexture(texture);
 }
 
-void Entity::Load(SDL_Rect rect)
+bool Entity::Load(SDL_Rect rect)
 {
 	this->position = Vector2{ 
 		static_cast<float>(rect.x),
@@ -23,6 +23,7 @@ void Entity::Load(SDL_Rect rect)
 
 	destination.w = source.w;
 	destination.h = source.h;
+	return true;
 }
 
 void Entity::Render(SDL_Renderer * renderer)
