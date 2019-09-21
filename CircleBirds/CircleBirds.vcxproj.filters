@@ -84,6 +84,9 @@
     <ClCompile Include="TextLabel.cpp">
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
+    <ClCompile Include="PhysicsEntity.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utilities.h">
@@ -120,6 +123,9 @@
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
     <ClInclude Include="TextLabel.h">
+      <Filter>Header Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsEntity.h">
       <Filter>Header Files\Entities</Filter>
     </ClInclude>
   </ItemGroup>
