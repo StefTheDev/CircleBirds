@@ -20,12 +20,12 @@ bool GameScene::Load()
 	std::shared_ptr<PhysicsEntity> platform = std::make_shared<PhysicsEntity>(*world, SDL_Rect{ 0, 600, 1600, 200 }, true);
 	platform->Texture(textureManager->GetTexture(PLATFORM_ICE_SPRITE));
 
-	std::shared_ptr<Player> player = std::make_shared<Player>(*world, SDL_Rect{ 60, 60, 64, 64 });
-	player->Texture(textureManager->GetTexture(PLAYER_RED_SPRITE));
+	std::shared_ptr<PlayerHandler> playerHandler = std::make_shared<PlayerHandler>(SDL_Rect{64, 536, 64, 64}, world, std::shared_ptr<Scene>(this));
+	playerHandler->Texture(textureManager->GetTexture(PLAYER_RED_SPRITE));
 
 	entities.push_back(background);
-	entities.push_back(player);
 	entities.push_back(platform);
+	entities.push_back(playerHandler);
 
 	return Scene::Load();
 }

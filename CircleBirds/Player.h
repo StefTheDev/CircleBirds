@@ -5,10 +5,9 @@
 class Player : public Entity
 {
 public:
-	Player(b2World& _world, SDL_Rect _rect);
+	Player(b2World& _world, SDL_Rect _rect, b2Vec2 initialForce);
 	~Player();
 
-	void Listen(SDL_Event event) override;
 	void Update() override;
 
 private:
