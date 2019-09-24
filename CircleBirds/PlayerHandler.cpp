@@ -18,6 +18,7 @@ void PlayerHandler::Render(SDL_Renderer* renderer)
 
 void PlayerHandler::Listen(SDL_Event event)
 {
+	if (amount <= 0) return;
 	int mouseX, mouseY;
 	switch (event.type)
 	{
@@ -69,6 +70,7 @@ void PlayerHandler::Listen(SDL_Event event)
 			destination.x = catapultLocation.x - source.w * 0.5f;
 			destination.y = catapultLocation.y - source.h * 0.5f;
 			active = false;
+			amount --;
 		}
 	}break;
 	}
