@@ -5,7 +5,7 @@
 
 #include "TextureManager.h"
 
-const int WINDOW_WIDTH = 1600;
+const int WINDOW_WIDTH = 1280;
 const int WINDOW_HEIGHT = 800;
 
 class Entity;
@@ -22,6 +22,10 @@ public:
 
 	virtual bool Load();
 	virtual bool Unload();
+
+	void AddEntity(std::shared_ptr<Entity> _entity);
+
+	std::shared_ptr<TextureManager> GetTextureManager();
 
 	std::string ToString();
 

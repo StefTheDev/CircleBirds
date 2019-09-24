@@ -43,6 +43,9 @@
     <Filter Include="Source Files\Utilities">
       <UniqueIdentifier>{d659b3ba-ada5-483c-a509-2e92bf572548}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Listeners">
+      <UniqueIdentifier>{5619a451-0163-442c-8c46-1b63814bd95d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -81,6 +84,9 @@
     <ClCompile Include="PhysicsEntity.cpp">
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerHandler.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utilities.h">
@@ -115,6 +121,12 @@
     </ClInclude>
     <ClInclude Include="PhysicsEntity.h">
       <Filter>Header Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="ContactListener.h">
+      <Filter>Header Files\Listeners</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerHandler.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
