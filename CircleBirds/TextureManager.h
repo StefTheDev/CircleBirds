@@ -22,6 +22,7 @@ class TextureManager
 {
 public:
 	TextureManager();
+	~TextureManager();
 	static std::shared_ptr<TextureManager> GetInstance();
 
 	void Load(SDL_Renderer* renderer);

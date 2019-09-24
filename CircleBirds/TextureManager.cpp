@@ -7,6 +7,13 @@ TextureManager::TextureManager()
 
 }
 
+TextureManager::~TextureManager()
+{
+	for (auto& font : fonts) {
+		TTF_CloseFont(font);
+	}
+}
+
 std::shared_ptr<TextureManager> TextureManager::GetInstance()
 {
 	if (textureManager == nullptr) textureManager = std::make_shared<TextureManager>();
