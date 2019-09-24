@@ -11,7 +11,6 @@ Player::~Player()
 
 void Player::Update()
 {
-	position += 1.0f;
 	Entity::Update();
 }
 

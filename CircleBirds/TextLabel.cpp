@@ -35,7 +35,7 @@ void TextLabel::Listen(SDL_Event event)
 
 bool TextLabel::IsHover(int x, int y) const
 {
-	return ((x > position.x) && (x < position.x + destination.w) && (y > position.y) && (y < position.y + destination.h));
+	return ((x > destination.x) && (x < destination.x + destination.w) && (y > destination.y) && (y < destination.y + destination.h));
 }
 
 void TextLabel::click()
