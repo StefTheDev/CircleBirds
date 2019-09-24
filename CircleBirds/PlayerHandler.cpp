@@ -9,8 +9,8 @@ void PlayerHandler::Render(SDL_Renderer* renderer)
 	
 	SDL_SetRenderDrawColor(renderer, 0x5d, 0x40, 0x1a, 0xff);
 
-	SDL_RenderDrawLine(renderer, catapultLocation.x - 50, catapultLocation.y, destination.x + source.w * 0.5, destination.y + source.h * 0.5);
-	SDL_RenderDrawLine(renderer, catapultLocation.x + 50, catapultLocation.y, destination.x + source.w * 0.5, destination.y + source.h * 0.5);
+	SDL_RenderDrawLine(renderer, catapultLocation.x - 30, catapultLocation.y, destination.x + source.w * 0.5, destination.y + source.h * 0.5);
+	SDL_RenderDrawLine(renderer, catapultLocation.x + 30, catapultLocation.y, destination.x + source.w * 0.5, destination.y + source.h * 0.5);
 
 	SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xff);
 
