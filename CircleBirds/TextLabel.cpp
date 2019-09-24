@@ -1,6 +1,6 @@
 #include "TextLabel.h"
 
-TextLabel::TextLabel(std::function<void()> onClick, SDL_Rect rect) : Entity(rect)
+TextLabel::TextLabel(std::function<void()> onClick)
 {
 	this->onClick = onClick;
 }

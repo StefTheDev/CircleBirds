@@ -1,7 +1,7 @@
 #pragma once
 #include "Scene.h"
 #include "Player.h"
-#include "PhysicsEntity.h"
+#include "Platform.h"
 
 class GameScene : public Scene
 {
