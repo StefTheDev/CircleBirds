@@ -17,7 +17,7 @@ PhysicsEntity::PhysicsEntity(b2World& _world, SDL_Rect _rect, bool isStatic) : E
 
 	fixtureDef.shape = &shapeBox;
 	fixtureDef.density = isStatic ? 0.0f : 1.0f;
-	fixtureDef.friction = 0.3f;
+	fixtureDef.friction = 1.0f;
 
 	body = _world.CreateBody(&bodyDef);
 
@@ -29,4 +29,5 @@ void PhysicsEntity::Update()
 {
 	destination.x = body->GetPosition().x * METER_TO_PIXEL - source.w * 0.5f;
 	destination.y = body->GetPosition().y * METER_TO_PIXEL - source.h * 0.5f;
+	angle = body->GetAngle() * (1.0f / 0.01745329252f);
 }

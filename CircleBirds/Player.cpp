@@ -11,20 +11,21 @@ Player::Player(b2World& _world, SDL_Rect _rect) : Entity(_rect)
 
 	bodyDef.type = b2_dynamicBody;
 
+	b2CircleShape shapeBox;
 
-	b2PolygonShape shapeBox;
-
-	shapeBox.SetAsBox(_rect.w * PIXEL_TO_METER * 0.5f, _rect.h * PIXEL_TO_METER * 0.5f);
+	shapeBox.m_p = b2Vec2(0.0f, 0.0f);
+	shapeBox.m_radius = _rect.w * PIXEL_TO_METER * 0.5f;
 
 	b2FixtureDef fixtureDef;
 
 	fixtureDef.shape = &shapeBox;
 	fixtureDef.density = 1.0f;
-	fixtureDef.friction = 0.3f;
+	fixtureDef.friction = 1.0f;
 
 	body = _world.CreateBody(&bodyDef);
 
 	body->CreateFixture(&fixtureDef);
+
 }
 
 Player::~Player()
@@ -36,6 +37,7 @@ void Player::Update()
 {
 	destination.x = body->GetPosition().x * METER_TO_PIXEL - source.w * 0.5f;
 	destination.y = body->GetPosition().y * METER_TO_PIXEL - source.h * 0.5f;
+	angle = body->GetAngle() * (1.0f/0.01745329252f);
 	Entity::Update();
 }
 
@@ -60,7 +62,8 @@ void Player::Listen(SDL_Event event)
 		case SDL_KEYDOWN: {
 			switch (event.key.keysym.sym) {
 				case SDLK_LEFT: {
-					//std::cout << "Left" << std::endl;
+					std::cout << "Left" << std::endl;
+					body->ApplyForce(b2Vec2(5.0f, 0.0f), b2Vec2(0.0f, 0.0f), true);
 				} break;
 				case SDLK_RIGHT: {
 					//std::cout << "Right" << std::endl;
