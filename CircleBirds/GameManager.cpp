@@ -39,7 +39,7 @@ bool GameManager::Initialise()
 
 	TextureManager::GetInstance()->Load(renderer);
 
-	return Switch(INGAME);
+	return Switch(MENU);
 }
 
 void GameManager::Render()
