@@ -7,7 +7,7 @@ Sprite::Sprite(SDL_Renderer * renderer)
 
 Sprite::~Sprite()
 {
-
+	SDL_DestroyTexture(texture);
 }
 
 bool Sprite::LoadImageFromFile(std::string fileName)
@@ -22,7 +22,6 @@ bool Sprite::LoadText(std::string text, TTF_Font* font, SDL_Color color)
 	if (surface == nullptr) return false;
 	texture = SDL_CreateTextureFromSurface(renderer, surface);
 	SDL_FreeSurface(surface);
-
 	return texture != nullptr;
 }
 
