@@ -27,6 +27,6 @@ PhysicsEntity::PhysicsEntity(b2World& _world, SDL_Rect _rect, bool isStatic) : E
 
 void PhysicsEntity::Update()
 {
-	position.x = body->GetPosition().x * METER_TO_PIXEL - source.w * 0.5f;
-	position.y = body->GetPosition().y * METER_TO_PIXEL - source.h * 0.5f;
+	destination.x = body->GetPosition().x * METER_TO_PIXEL - source.w * 0.5f;
+	destination.y = body->GetPosition().y * METER_TO_PIXEL - source.h * 0.5f;
 }
