@@ -15,6 +15,9 @@ bool GameScene::Load()
 
 	std::shared_ptr<Entity> background = std::make_shared<Entity>(SDL_Rect{ 0, 0, 1600, 800 });
 	background->Texture(textureManager->GetTexture(BACKGROUND_SPRITE));
+
+	std::shared_ptr<Entity> catapult = std::make_shared<Entity>(SDL_Rect{ 160, 420, 64, 159 });
+	catapult->Texture(textureManager->GetTexture(CATAPULT_SPRITE));
 	
 
 	std::shared_ptr<PhysicsEntity> platform = std::make_shared<PhysicsEntity>(*world, CIRCLE_ENTITY, SDL_Rect{ 500, 400, 32, 32 }, true);
@@ -27,6 +30,7 @@ bool GameScene::Load()
 	ground->Texture(textureManager->GetTexture(PLATFORM_ICE_SPRITE));
 
 	entities.push_back(background);
+	entities.push_back(catapult);
 	entities.push_back(ground);
 
 	b2Body* link = platform->GetBody();
@@ -38,8 +42,14 @@ bool GameScene::Load()
 		newLink = ice_cube->GetBody();
 
 		b2RevoluteJointDef revoluteJointDef;
-		revoluteJointDef.localAnchorA.Set(0.15, 0);
-		revoluteJointDef.localAnchorB.Set(-0.15, 0);
+		if (i == 0) {
+			revoluteJointDef.localAnchorA.Set(0, 0);
+			revoluteJointDef.localAnchorB.Set(0, 0);
+		}
+		else {
+			revoluteJointDef.localAnchorA.Set(0.15, 0);
+			revoluteJointDef.localAnchorB.Set(-0.15, 0);
+		}
 
 		link->SetLinearDamping(1.0f);
 		revoluteJointDef.bodyA = link;
