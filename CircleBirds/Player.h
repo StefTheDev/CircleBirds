@@ -5,7 +5,7 @@
 class Player : public Entity
 {
 public:
-	Player(b2World& _world, SDL_Rect _rect);
+	Player(SDL_Rect rect);
 	~Player();
 
 	void Listen(SDL_Event event) override;
@@ -13,7 +13,6 @@ public:
 
 private:
 	int mouseX, mouseY;
-	b2Body* body;
 };
 
 

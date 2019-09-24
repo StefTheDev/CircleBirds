@@ -8,7 +8,6 @@ PhysicsEntity::PhysicsEntity(b2World& _world, SDL_Rect _rect, bool isStatic) : E
 
 	bodyDef.type = isStatic ? b2_staticBody : b2_dynamicBody;
 
-
 	b2PolygonShape shapeBox;
 
 	shapeBox.SetAsBox(_rect.w * PIXEL_TO_METER * 0.5f, _rect.h * PIXEL_TO_METER * 0.5f);
@@ -20,7 +19,6 @@ PhysicsEntity::PhysicsEntity(b2World& _world, SDL_Rect _rect, bool isStatic) : E
 	fixtureDef.friction = 0.3f;
 
 	body = _world.CreateBody(&bodyDef);
-
 	body->CreateFixture(&fixtureDef);
 }
 
