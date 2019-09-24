@@ -33,6 +33,8 @@ PhysicsEntity::PhysicsEntity(b2World& _world, EntityType entityType, SDL_Rect _r
 	fixtureDef.friction = 1.0f;
 
 	body = _world.CreateBody(&bodyDef);
+	body->SetAngularDamping(0.2f);
+	body->SetLinearDamping(0.2f);
 	body->CreateFixture(&fixtureDef);
 }
 

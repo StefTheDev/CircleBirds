@@ -84,6 +84,9 @@
     <ClCompile Include="PhysicsEntity.cpp">
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerHandler.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utilities.h">
@@ -121,6 +124,9 @@
     </ClInclude>
     <ClInclude Include="ContactListener.h">
       <Filter>Header Files\Listeners</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerHandler.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

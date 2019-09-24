@@ -23,6 +23,10 @@ public:
 	virtual bool Load();
 	virtual bool Unload();
 
+	void AddEntity(std::shared_ptr<Entity> _entity);
+
+	std::shared_ptr<TextureManager> GetTextureManager();
+
 	std::string ToString();
 
 private:
