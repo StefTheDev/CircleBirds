@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Player::Player(SDL_Rect rect) : Entity(rect)
+Player::Player(SDL_Rect _rect, b2World& _world) : Entity(_rect)
 {
 	mouseX = 0;
 	mouseY = 0;
@@ -26,7 +26,7 @@ Player::Player(SDL_Rect rect) : Entity(rect)
 
 	body->CreateFixture(&fixtureDef);
 }
-
+;
 Player::~Player()
 {
 
@@ -36,7 +36,7 @@ void Player::Update()
 {
 	destination.x = body->GetPosition().x * METER_TO_PIXEL - source.w * 0.5f;
 	destination.y = body->GetPosition().y * METER_TO_PIXEL - source.h * 0.5f;
-	angle = body->GetAngle() * (1.0f/0.01745329252f);
+	angle = body->GetAngle() * (1.0f / 0.01745329252f);
 	Entity::Update();
 }
 
@@ -61,14 +61,11 @@ void Player::Listen(SDL_Event event)
 		case SDL_KEYDOWN: {
 			switch (event.key.keysym.sym) {
 				case SDLK_LEFT: {
-					std::cout << "Left" << std::endl;
-					body->ApplyForce(b2Vec2(5.0f, 0.0f), b2Vec2(0.0f, 0.0f), true);
 				} break;
 				case SDLK_RIGHT: {
-					//std::cout << "Right" << std::endl;
+					body->ApplyForce(b2Vec2(1.0f, 0.0f), b2Vec2(0.0f, 0.0f), true);
 				} break;
 				case SDLK_UP: {
-					//std::cout << "Up" << std::endl;
 				} break;
 				case SDLK_DOWN: {
 					//std::cout << "Down" << std::endl;
