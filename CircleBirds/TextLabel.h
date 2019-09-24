@@ -4,7 +4,7 @@
 class TextLabel : public Entity
 {
 public:
-	TextLabel(std::function<void()> onClick);
+	TextLabel(std::function<void()> onClick, SDL_Rect rect);
 	~TextLabel();
 	void Listen(SDL_Event event) override;
 	bool IsHover(int x, int y) const;

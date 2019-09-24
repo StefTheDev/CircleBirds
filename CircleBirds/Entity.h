@@ -4,7 +4,7 @@
 class Entity
 {
 public:
-	Entity();
+	Entity(SDL_Rect rect);
 	~Entity();
 
 	virtual bool Load(SDL_Rect rect);

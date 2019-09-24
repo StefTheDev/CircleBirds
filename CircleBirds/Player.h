@@ -5,6 +5,7 @@
 class Player : public Entity
 {
 public:
+	Player(SDL_Rect rect);
 	~Player();
 
 	void Listen(SDL_Event event) override;
