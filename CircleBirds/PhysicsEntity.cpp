@@ -11,7 +11,7 @@ PhysicsEntity::PhysicsEntity(b2World& _world, SDL_Rect _rect, bool isStatic) : E
 
 	b2PolygonShape shapeBox;
 
-	shapeBox.SetAsBox(_rect.w * PIXEL_TO_METER, _rect.h * PIXEL_TO_METER);
+	shapeBox.SetAsBox(_rect.w * PIXEL_TO_METER * 0.5f, _rect.h * PIXEL_TO_METER * 0.5f);
 	
 	b2FixtureDef fixtureDef;
 
