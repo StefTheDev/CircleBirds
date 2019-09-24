@@ -17,7 +17,6 @@ Player::Player(b2World& _world, SDL_Rect _rect) : Entity(_rect)
 	shapeBox.m_radius = _rect.w * PIXEL_TO_METER * 0.5f;
 
 	b2FixtureDef fixtureDef;
-
 	fixtureDef.shape = &shapeBox;
 	fixtureDef.density = 1.0f;
 	fixtureDef.friction = 1.0f;
@@ -62,8 +61,7 @@ void Player::Listen(SDL_Event event)
 		case SDL_KEYDOWN: {
 			switch (event.key.keysym.sym) {
 				case SDLK_LEFT: {
-					std::cout << "Left" << std::endl;
-					body->ApplyForce(b2Vec2(5.0f, 0.0f), b2Vec2(0.0f, 0.0f), true);
+					//std::cout << "Left" << std::endl;
 				} break;
 				case SDLK_RIGHT: {
 					//std::cout << "Right" << std::endl;
