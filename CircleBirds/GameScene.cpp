@@ -29,8 +29,8 @@ bool GameScene::Load()
 	b2Body* newLink = nullptr;
 
 	for (int i = 0; i < 5; i++) {
-		std::shared_ptr<PhysicsEntity> ice_cube = std::make_shared<PhysicsEntity>(*world, BOX_ENTITY, SDL_Rect{ 16 * i, 16 * i, 32, 32 }, false);
-		ice_cube->Texture(textureManager->GetTexture(PLATFORM_WOOD_SPRITE));
+		std::shared_ptr<PhysicsEntity> ice_cube = std::make_shared<PhysicsEntity>(*world, BOX_ENTITY, SDL_Rect{ 16 * i, 16 * i, 8, 16 }, false);
+		ice_cube->Texture(textureManager->GetTexture(CHAIN_SPRITE));
 		newLink = ice_cube->GetBody();
 
 		b2RevoluteJointDef revoluteJointDef;

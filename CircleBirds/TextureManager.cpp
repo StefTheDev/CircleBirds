@@ -53,6 +53,10 @@ void TextureManager::Load(SDL_Renderer* renderer)
 	sprites.push_back(sprite);
 
 	sprite = std::make_unique <Sprite>(renderer);
+	sprite->LoadImageFromFile("Resources/Sprites/Objects/Chain.png");
+	sprites.push_back(sprite);
+
+	sprite = std::make_unique <Sprite>(renderer);
 	sprite->LoadImageFromFile("Resources/Sprites/General/Background.png");
 	sprites.push_back(sprite);
 
