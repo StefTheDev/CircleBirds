@@ -1,5 +1,9 @@
 #include "Player.h"
 
+Player::Player(SDL_Rect rect) : Entity(rect)
+{
+}
+
 Player::~Player()
 {
 

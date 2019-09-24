@@ -1,8 +1,17 @@
 #include "Entity.h"
 
-Entity::Entity()
+Entity::Entity(SDL_Rect rect)
 {
 
+	position.x = static_cast<float>(rect.x);
+	position.y = static_cast<float>(rect.y);
+
+	source.x = source.y = 0;
+	source.w = rect.w;
+	source.h = rect.h;
+
+	destination.w = source.w;
+	destination.h = source.h;
 }
 
 Entity::~Entity()
