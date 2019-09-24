@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Source Files">
@@ -54,6 +54,9 @@
     <ClCompile Include="GameScene.cpp">
       <Filter>Source Files\Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
     <ClCompile Include="Sprite.cpp">
       <Filter>Source Files\Objects</Filter>
     </ClCompile>
@@ -69,20 +72,14 @@
     <ClCompile Include="Utilities.cpp">
       <Filter>Source Files\Utilities</Filter>
     </ClCompile>
-    <ClCompile Include="Platform.cpp">
+    <ClCompile Include="TextLabel.cpp">
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
-    <ClCompile Include="TextLabel.cpp">
+    <ClCompile Include="PhysicsEntity.cpp">
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
     <ClCompile Include="TextureManager.cpp">
       <Filter>Source Files\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="PhysicsEntity.cpp">
-      <Filter>Source Files\Entities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -109,9 +106,6 @@
     </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>Header Files\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="Platform.h">
-      <Filter>Header Files\Entities</Filter>
     </ClInclude>
     <ClInclude Include="TextLabel.h">
       <Filter>Header Files\Entities</Filter>
