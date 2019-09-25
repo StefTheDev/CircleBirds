@@ -63,10 +63,13 @@ void GameManager::HandleEvents()
 
 void GameManager::Update()
 {
+
+
 	timeLastFrame = timeCurrentFrame;
 	timeCurrentFrame = SDL_GetPerformanceCounter();
 
 	DELTA_TIME = (float)((timeCurrentFrame - timeLastFrame) / (float)SDL_GetPerformanceFrequency());
+	if (DELTA_TIME > 0.3f) DELTA_TIME = 0.3f;
 	if (gameState != EXIT) scenes[gameState]->Update();
 
 	SDL_GetMouseState(&mouseX, &mouseY);
