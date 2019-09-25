@@ -2,6 +2,8 @@
 
 PlayerHandler::PlayerHandler(SDL_Rect _rect, b2World* _world, std::shared_ptr<Scene> _scene) : Entity(_rect), world(_world), scene(_scene)
 {
+	destination.x = catapultLocation.x - _rect.w * 0.5f;
+	destination.y = catapultLocation.y - _rect.h * 0.5f;
 }
 
 void PlayerHandler::Render(SDL_Renderer* renderer)
@@ -19,6 +21,7 @@ void PlayerHandler::Render(SDL_Renderer* renderer)
 void PlayerHandler::Listen(SDL_Event event)
 {
 	if (amount <= 0) return;
+
 	int mouseX, mouseY;
 	switch (event.type)
 	{
@@ -64,7 +67,7 @@ void PlayerHandler::Listen(SDL_Event event)
 	} break;
 	case SDL_MOUSEBUTTONUP: {
 		if (event.button.button == 1 && active) {
-			std::shared_ptr<Player> newPlayer = std::make_shared<Player>(*world, destination, 4.0f * PIXEL_TO_METER * (catapultLocation - (b2Vec2{ static_cast<float>(destination.x), static_cast<float>(destination.y) } + b2Vec2{ source.w * 0.5f, source.h * 0.5f })) );
+			std::shared_ptr<Player> newPlayer = std::make_shared<Player>(*world, destination, 1.0f * PIXEL_TO_METER * (catapultLocation - (b2Vec2{ static_cast<float>(destination.x), static_cast<float>(destination.y) } + b2Vec2{ source.w * 0.5f, source.h * 0.5f })) );
 			newPlayer->Texture(scene->GetTextureManager()->GetTexture(PLAYER_RED_SPRITE));
 			scene->AddEntity(newPlayer);
 			destination.x = catapultLocation.x - source.w * 0.5f;
