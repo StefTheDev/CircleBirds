@@ -34,11 +34,21 @@ bool GameScene::Load()
 	playerHandler->Texture(textureManager->GetTexture(PLAYER_RED_SPRITE));
 	entities.push_back(playerHandler);
 
+	for (int x = 0; x < 5; x++)
+	{
+		for (int y = 0; y < 5; y++)
+		{
+			std::shared_ptr<PhysicsEntity> box = std::make_shared<PhysicsEntity>(*world, BOX_ENTITY, SDL_Rect{ (32 * x) + 800, (y % 32) + 400, 32, 32 }, false);
+			box->Texture(textureManager->GetTexture(PLATFORM_WOOD_SPRITE));
+			entities.push_back(box);
+		}
+	}
 
 	b2Body* link = platform->GetBody();
 	b2Body* newLink = nullptr;
 
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < 5; i++)
+	{
 		std::shared_ptr<PhysicsEntity> ice_cube = std::make_shared<PhysicsEntity>(*world, BOX_ENTITY, SDL_Rect{ 16 * i, 16 * i, 32, 32 }, false);
 		ice_cube->Texture(textureManager->GetTexture(PLATFORM_WOOD_SPRITE));
 

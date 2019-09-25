@@ -17,11 +17,11 @@ PhysicsEntity::PhysicsEntity(b2World& _world, EntityType entityType, SDL_Rect _r
 	{
 	case CIRCLE_ENTITY: {
 		circleShape.m_p = b2Vec2(0.0f, 0.0f);
-		circleShape.m_radius = _rect.w * PIXEL_TO_METER * 0.5f;
+		circleShape.m_radius = (_rect.w * PIXEL_TO_METER * 0.5f) - 0.01f;
 		fixtureDef.shape = &circleShape;
 	} break;
 	case BOX_ENTITY: {
-		boxShape.SetAsBox(_rect.w * PIXEL_TO_METER * 0.5f, _rect.h * PIXEL_TO_METER * 0.5f);
+		boxShape.SetAsBox((_rect.w * PIXEL_TO_METER * 0.5f) - 0.01f, (_rect.h * PIXEL_TO_METER * 0.5f) -0.01f);
 		fixtureDef.shape = &boxShape;
 	} break;
 

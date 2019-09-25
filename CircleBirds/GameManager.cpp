@@ -14,6 +14,8 @@ GameManager::GameManager(std::string string)
 
 		window = SDL_CreateWindow(string.c_str(), (displayMode.w - WINDOW_WIDTH) / 2,(displayMode.h - WINDOW_HEIGHT) / 2, WINDOW_WIDTH, WINDOW_HEIGHT, flags);
 		renderer = SDL_CreateRenderer(window, -1, 0);
+
+		SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "2");
 	}
 }
 

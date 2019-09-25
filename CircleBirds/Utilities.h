@@ -18,7 +18,7 @@
 #include <Box2D/Box2D.h>
 
 const float METER_TO_PIXEL = 100.0f;
-const float PIXEL_TO_METER = 1.0f / METER_TO_PIXEL;
+const float PIXEL_TO_METER = (1.0f / METER_TO_PIXEL);
 
 extern float DELTA_TIME;
 
