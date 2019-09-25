@@ -2,6 +2,7 @@
 
 PlayerHandler::PlayerHandler(SDL_Rect _rect, b2World* _world, std::shared_ptr<Scene> _scene) : Entity(_rect), world(_world), scene(_scene)
 {
+
 }
 
 void PlayerHandler::Render(SDL_Renderer* renderer)
@@ -19,6 +20,7 @@ void PlayerHandler::Render(SDL_Renderer* renderer)
 void PlayerHandler::Listen(SDL_Event event)
 {
 	if (amount <= 0) return;
+
 	int mouseX, mouseY;
 	switch (event.type)
 	{

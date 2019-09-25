@@ -13,22 +13,27 @@ GameScene::~GameScene()
 bool GameScene::Load()
 {
 
-	std::shared_ptr<Entity> background = std::make_shared<Entity>(SDL_Rect{ 0, 0, 1600, 800 });
+	std::shared_ptr<Entity> background = std::make_shared<Entity>(SDL_Rect{ 0, 0, 1280, 800 });
 	background->Texture(textureManager->GetTexture(BACKGROUND_SPRITE));
+	entities.push_back(background);
+
+	std::shared_ptr<PhysicsEntity> ground = std::make_shared<PhysicsEntity>(*world, BOX_ENTITY, SDL_Rect{ 0, 680, 1280, 120 }, true);
+	ground->Texture(textureManager->GetTexture(GROUND_SPRITE));
+	entities.push_back(ground);
 
 	std::shared_ptr<Entity> catapult = std::make_shared<Entity>(SDL_Rect{ 160, 420, 64, 159 });
 	catapult->Texture(textureManager->GetTexture(CATAPULT_SPRITE));
+	entities.push_back(catapult);
 	
 
 	std::shared_ptr<PhysicsEntity> platform = std::make_shared<PhysicsEntity>(*world, CIRCLE_ENTITY, SDL_Rect{ 500, 400, 32, 32 }, true);
 	platform->Texture(textureManager->GetTexture(PLATFORM_WOOD_SPRITE));
+	entities.push_back(platform);
 
 	std::shared_ptr<PlayerHandler> playerHandler = std::make_shared<PlayerHandler>(SDL_Rect{64, 536, 64, 64}, world, std::shared_ptr<Scene>(this));
 	playerHandler->Texture(textureManager->GetTexture(PLAYER_RED_SPRITE));
+	entities.push_back(playerHandler);
 
-
-	entities.push_back(background);
-	entities.push_back(catapult);
 
 	b2Body* link = platform->GetBody();
 	b2Body* newLink = nullptr;
@@ -57,9 +62,6 @@ bool GameScene::Load()
 
 		entities.push_back(ice_cube);
 	}
-
-	entities.push_back(platform);
-	entities.push_back(playerHandler);
 
 	return Scene::Load();
 }

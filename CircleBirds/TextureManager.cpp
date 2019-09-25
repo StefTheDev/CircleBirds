@@ -61,6 +61,11 @@ void TextureManager::Load(SDL_Renderer* renderer)
 	sprites.push_back(sprite);
 
 	sprite = std::make_unique <Sprite>(renderer);
+	sprite->LoadImageFromFile("Resources/Sprites/General/Ground.png");
+	sprites.push_back(sprite);
+
+
+	sprite = std::make_unique <Sprite>(renderer);
 	sprite->LoadText("Play", fonts[ARIAL_FONT], SDL_Color{ 255, 255, 255 });
 	sprites.push_back(sprite);
 
