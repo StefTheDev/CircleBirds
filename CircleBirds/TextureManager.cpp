@@ -53,6 +53,10 @@ void TextureManager::Load(SDL_Renderer* renderer)
 	sprites.push_back(sprite);
 
 	sprite = std::make_unique <Sprite>(renderer);
+	sprite->LoadImageFromFile("Resources/Sprites/Planks/Wood-Plank.png");
+	sprites.push_back(sprite);
+
+	sprite = std::make_unique <Sprite>(renderer);
 	sprite->LoadImageFromFile("Resources/Sprites/General/Catapult.png");
 	sprites.push_back(sprite);
 

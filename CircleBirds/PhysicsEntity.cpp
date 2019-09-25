@@ -40,6 +40,7 @@ void PhysicsEntity::Update()
 {
 	destination.x = body->GetPosition().x * METER_TO_PIXEL - source.w * 0.5f;
 	destination.y = body->GetPosition().y * METER_TO_PIXEL - source.h * 0.5f;
+	angle = body->GetAngle() * (1.0f / 0.01745329252f);
 }
 
 b2Body* PhysicsEntity::GetBody()

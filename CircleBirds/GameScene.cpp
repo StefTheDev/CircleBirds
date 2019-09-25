@@ -26,31 +26,36 @@ bool GameScene::Load()
 	entities.push_back(catapult);
 	
 
-	std::shared_ptr<PhysicsEntity> platform = std::make_shared<PhysicsEntity>(*world, CIRCLE_ENTITY, SDL_Rect{ 500, 400, 32, 32 }, true);
-	platform->Texture(textureManager->GetTexture(PLATFORM_WOOD_SPRITE));
-	entities.push_back(platform);
-
 	std::shared_ptr<PlayerHandler> playerHandler = std::make_shared<PlayerHandler>(SDL_Rect{64, 536, 64, 64}, world, std::shared_ptr<Scene>(this));
 	playerHandler->Texture(textureManager->GetTexture(PLAYER_RED_SPRITE));
 	entities.push_back(playerHandler);
 
-	for (int x = 0; x < 5; x++)
-	{
-		for (int y = 0; y < 5; y++)
-		{
-			std::shared_ptr<PhysicsEntity> box = std::make_shared<PhysicsEntity>(*world, BOX_ENTITY, SDL_Rect{ (32 * x) + 800, (y % 32) + 400, 32, 32 }, false);
-			box->Texture(textureManager->GetTexture(PLATFORM_WOOD_SPRITE));
-			entities.push_back(box);
-		}
-	}
 
+	std::shared_ptr<PhysicsEntity> plank = std::make_shared<PhysicsEntity>(*world, BOX_ENTITY, SDL_Rect{ 588, 580, 8, 100 }, false);
+	plank->Texture(textureManager->GetTexture(PLANK_WOOD_SPRITE));
+	entities.push_back(plank);
+
+	std::shared_ptr<PhysicsEntity> plank2 = std::make_shared<PhysicsEntity>(*world, BOX_ENTITY, SDL_Rect{ 672, 580, 8, 100 }, false);
+	plank2->Texture(textureManager->GetTexture(PLANK_WOOD_SPRITE));
+	entities.push_back(plank2);
+
+	std::shared_ptr<PhysicsEntity> plank3 = std::make_shared<PhysicsEntity>(*world, BOX_ENTITY, SDL_Rect{ 580, 572, 100, 8 }, false);
+	plank3->Texture(textureManager->GetTexture(PLANK_WOOD_SPRITE));
+	entities.push_back(plank3);
+
+	std::shared_ptr<PhysicsEntity> plank4 = std::make_shared<PhysicsEntity>(*world, BOX_ENTITY, SDL_Rect{ 588, 672, 100, 8 }, false);
+	plank4->Texture(textureManager->GetTexture(PLANK_WOOD_SPRITE));
+	entities.push_back(plank4);
+
+
+	/*
 	b2Body* link = platform->GetBody();
 	b2Body* newLink = nullptr;
 
 	for (int i = 0; i < 5; i++)
 	{
-		std::shared_ptr<PhysicsEntity> ice_cube = std::make_shared<PhysicsEntity>(*world, BOX_ENTITY, SDL_Rect{ 16 * i, 16 * i, 32, 32 }, false);
-		ice_cube->Texture(textureManager->GetTexture(PLATFORM_WOOD_SPRITE));
+		std::shared_ptr<PhysicsEntity> ice_cube = std::make_shared<PhysicsEntity>(*world, BOX_ENTITY, SDL_Rect{ 16 * i, 16 * i, 7, 80 }, false);
+		ice_cube->Texture(textureManager->GetTexture(PLANK_WOOD_SPRITE));
 
 		b2RevoluteJointDef revoluteJointDef;
 		if (i == 0) {
@@ -58,13 +63,15 @@ bool GameScene::Load()
 			revoluteJointDef.localAnchorB.Set(0, 0);
 		}
 		else {
-			revoluteJointDef.localAnchorA.Set(0.15, 0);
-			revoluteJointDef.localAnchorB.Set(-0.15, 0);
+			revoluteJointDef.localAnchorA.Set(0.40, 0);
+			revoluteJointDef.localAnchorB.Set(-0.40, 0);
 		}
 
 		newLink = ice_cube->GetBody();
 		revoluteJointDef.bodyA = link;
 		revoluteJointDef.bodyB = newLink;
+		revoluteJointDef.collideConnected = false;
+
 		world->CreateJoint(&revoluteJointDef);
 
 		link->SetLinearDamping(1.0f);
@@ -72,7 +79,7 @@ bool GameScene::Load()
 
 		entities.push_back(ice_cube);
 	}
-
+	*/
 	return Scene::Load();
 }
 
