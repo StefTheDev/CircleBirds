@@ -26,27 +26,28 @@ bool GameScene::Load()
 	entities.push_back(catapult);
 	
 
-	std::shared_ptr<PlayerHandler> playerHandler = std::make_shared<PlayerHandler>(SDL_Rect{64, 536, 64, 64}, world, std::shared_ptr<Scene>(this));
+	std::shared_ptr<PlayerHandler> playerHandler = std::make_shared<PlayerHandler>(SDL_Rect{64, 536, 32, 32}, world, std::shared_ptr<Scene>(this));
 	playerHandler->Texture(textureManager->GetTexture(PLAYER_RED_SPRITE));
 	entities.push_back(playerHandler);
 
 
-	std::shared_ptr<PhysicsEntity> plank = std::make_shared<PhysicsEntity>(*world, BOX_ENTITY, SDL_Rect{ 588, 580, 8, 100 }, false);
+	std::shared_ptr<PhysicsEntity> plank = std::make_shared<PhysicsEntity>(*world, BOX_ENTITY, SDL_Rect{ 500, 580, 8, 100 }, false);
 	plank->Texture(textureManager->GetTexture(PLANK_WOOD_SPRITE));
 	entities.push_back(plank);
 
-	std::shared_ptr<PhysicsEntity> plank2 = std::make_shared<PhysicsEntity>(*world, BOX_ENTITY, SDL_Rect{ 672, 580, 8, 100 }, false);
+	std::shared_ptr<PhysicsEntity> plank2 = std::make_shared<PhysicsEntity>(*world, BOX_ENTITY, SDL_Rect{ 592, 580, 8, 100 }, false);
 	plank2->Texture(textureManager->GetTexture(PLANK_WOOD_SPRITE));
 	entities.push_back(plank2);
 
-	std::shared_ptr<PhysicsEntity> plank3 = std::make_shared<PhysicsEntity>(*world, BOX_ENTITY, SDL_Rect{ 580, 572, 100, 8 }, false);
+	std::shared_ptr<PhysicsEntity> plank3 = std::make_shared<PhysicsEntity>(*world, BOX_ENTITY, SDL_Rect{ 500, 572, 100, 8 }, false);
 	plank3->Texture(textureManager->GetTexture(PLANK_WOOD_SPRITE));
 	entities.push_back(plank3);
 
-	std::shared_ptr<PhysicsEntity> plank4 = std::make_shared<PhysicsEntity>(*world, BOX_ENTITY, SDL_Rect{ 588, 672, 100, 8 }, false);
+	std::shared_ptr<PhysicsEntity> plank4 = std::make_shared<PhysicsEntity>(*world, BOX_ENTITY, SDL_Rect{ 508, 672, 84, 8 }, false);
 	plank4->Texture(textureManager->GetTexture(PLANK_WOOD_SPRITE));
 	entities.push_back(plank4);
 
+	DELTA_TIME = 0.0f;
 
 	/*
 	b2Body* link = platform->GetBody();
