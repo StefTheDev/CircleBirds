@@ -11,7 +11,7 @@ public:
 private:
 	b2World* world;
 	std::shared_ptr<Scene> scene;
-	b2Vec2 catapultLocation{ 200.0f, 450.0f };
+	b2Vec2 catapultLocation{ (120 + 32 * 0.5) + 5, 550 + 10};
 	float maxDistToCatapult = 100.0f;
 	int amount = 5;
 	bool active = false;

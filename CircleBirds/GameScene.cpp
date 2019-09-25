@@ -21,7 +21,7 @@ bool GameScene::Load()
 	ground->Texture(textureManager->GetTexture(GROUND_SPRITE));
 	entities.push_back(ground);
 
-	std::shared_ptr<Entity> catapult = std::make_shared<Entity>(SDL_Rect{ 160, 420, 64, 159 });
+	std::shared_ptr<Entity> catapult = std::make_shared<Entity>(SDL_Rect{ 120, 550, 32, 80 });
 	catapult->Texture(textureManager->GetTexture(CATAPULT_SPRITE));
 	entities.push_back(catapult);
 	
@@ -29,6 +29,10 @@ bool GameScene::Load()
 	std::shared_ptr<PlayerHandler> playerHandler = std::make_shared<PlayerHandler>(SDL_Rect{64, 536, 32, 32}, world, std::shared_ptr<Scene>(this));
 	playerHandler->Texture(textureManager->GetTexture(PLAYER_RED_SPRITE));
 	entities.push_back(playerHandler);
+
+	std::shared_ptr<Entity> catapultPlatform = std::make_shared<Entity>(SDL_Rect{ 120, 630, 48, 48 });
+	catapultPlatform->Texture(textureManager->GetTexture(PLATFORM_WOOD_SPRITE));
+	entities.push_back(catapultPlatform);
 
 
 	std::shared_ptr<PhysicsEntity> plank = std::make_shared<PhysicsEntity>(*world, BOX_ENTITY, SDL_Rect{ 500, 580, 8, 100 }, false);
@@ -46,8 +50,6 @@ bool GameScene::Load()
 	std::shared_ptr<PhysicsEntity> plank4 = std::make_shared<PhysicsEntity>(*world, BOX_ENTITY, SDL_Rect{ 508, 672, 84, 8 }, false);
 	plank4->Texture(textureManager->GetTexture(PLANK_WOOD_SPRITE));
 	entities.push_back(plank4);
-
-	DELTA_TIME = 0.0f;
 
 	/*
 	b2Body* link = platform->GetBody();
