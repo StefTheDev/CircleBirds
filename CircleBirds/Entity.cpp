@@ -8,8 +8,8 @@ Entity::Entity(SDL_Rect rect)
 
 	destination.x = rect.x;
 	destination.y = rect.y;
-	destination.w = source.w;
-	destination.h = source.h;
+	destination.w = rect.w;
+	destination.h = rect.h;
 }
 
 Entity::~Entity()
