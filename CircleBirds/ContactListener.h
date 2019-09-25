@@ -8,6 +8,9 @@ class ContactListener : public b2ContactListener
 		void* objectA = contact->GetFixtureA()->GetBody()->GetUserData();
 		void* objectB = contact->GetFixtureB()->GetBody()->GetUserData();
 
+		if (objectA == static_cast<Player*>(objectA) && objectB == static_cast<Player*>(objectA)) {
+
+		}
 
 	}
 };

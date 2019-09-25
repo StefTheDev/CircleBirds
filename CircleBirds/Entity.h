@@ -4,7 +4,7 @@
 class Entity
 {
 public:
-	Entity(SDL_Rect rect);
+	Entity(SDL_Rect rect, SDL_Texture* texture);
 	~Entity();
 
 	virtual void Render(SDL_Renderer * renderer);

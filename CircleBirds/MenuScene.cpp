@@ -12,28 +12,22 @@ MenuScene::~MenuScene()
 
 bool MenuScene::Load()
 {
-	std::shared_ptr<Entity> background = std::make_shared<Entity>(SDL_Rect{ 0, 0, 1600, 800 });
-	background->Texture(textureManager->GetTexture(BACKGROUND_SPRITE));
-	entities.push_back(background);
+	entities.push_back(std::make_shared<Entity>(SDL_Rect{ 0, 0, 1600, 800 }, textureManager->GetTexture(BACKGROUND_SPRITE)));
 	
 	
 	int width, height = 0;
 
 	SDL_QueryTexture(textureManager->GetTexture(PLAY_TEXT_SPRITE), NULL, NULL, &width, &height);
 	SDL_Rect rect = SDL_Rect{ WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2 - 50, width, height };
-	std::shared_ptr<TextLabel> play = std::make_shared<TextLabel>([this] {
+	entities.push_back(std::make_shared<TextLabel>([this] {
 		std::cout << "Play clicked..." << std::endl;
-	}, rect);
-	play->Texture(textureManager->GetTexture(PLAY_TEXT_SPRITE));
-	entities.push_back(play);
+	}, rect, textureManager->GetTexture(PLAY_TEXT_SPRITE)));
 
 	SDL_QueryTexture(textureManager->GetTexture(QUIT_TEXT_SPRITE), NULL, NULL, &width, &height);
 	rect = SDL_Rect{ WINDOW_WIDTH / 2, (WINDOW_HEIGHT / 2) + 40, width, height };
-	std::shared_ptr<TextLabel> Quit = std::make_shared<TextLabel>([this] {
+	entities.push_back(std::make_shared<TextLabel>([this] {
 		std::cout << "Quit clicked..." << std::endl;
-		}, rect);
-	Quit->Texture(textureManager->GetTexture(QUIT_TEXT_SPRITE));
-	entities.push_back(Quit);
+		}, rect, textureManager->GetTexture(QUIT_TEXT_SPRITE)));
 
 	return Scene::Load(); 
 }
