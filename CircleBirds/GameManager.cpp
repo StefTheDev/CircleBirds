@@ -4,6 +4,8 @@
 #include "MenuScene.h"
 #include "GameScene.h"
 
+GameManager* GameManager::instance = nullptr;
+
 GameManager::GameManager(std::string string)
 {
 	Uint32 flags = SDL_WINDOW_SHOWN | SDL_WINDOW_ALLOW_HIGHDPI;
@@ -17,6 +19,12 @@ GameManager::GameManager(std::string string)
 
 		SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "2");
 	}
+}
+
+GameManager* GameManager::GetInstance()
+{
+	if (instance == nullptr) instance = new GameManager("CircleBirds");
+	return instance;
 }
 
 GameManager::~GameManager()
