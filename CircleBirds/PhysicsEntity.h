@@ -9,7 +9,7 @@ enum EntityType {
 class PhysicsEntity : public Entity
 {
 public:
-	PhysicsEntity(b2World& _world, EntityType entityType, SDL_Rect _rect, bool isStatic);
+	PhysicsEntity(b2World& _world, EntityType entityType, SDL_Rect _rect, bool isStatic, SDL_Texture* texture);
 	void Update() override;
 
 	b2Body* GetBody();

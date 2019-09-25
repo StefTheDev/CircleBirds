@@ -1,11 +1,11 @@
 #pragma once
 
-#include "Entity.h"
+#include "PhysicsEntity.h"
 
-class Player : public Entity
+class Player : public PhysicsEntity
 {
 public:
-	Player(b2World& _world, SDL_Rect _rect, b2Vec2 initialForce);
+	Player(b2World& _world, EntityType entityType, SDL_Rect _rect, bool isStatic, b2Vec2 initialForce, SDL_Texture* texture);
 	~Player();
 
 	void Update() override;

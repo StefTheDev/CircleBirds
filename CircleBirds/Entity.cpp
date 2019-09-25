@@ -1,7 +1,9 @@
 #include "Entity.h"
 
-Entity::Entity(SDL_Rect rect)
+Entity::Entity(SDL_Rect rect, SDL_Texture* texture)
 {
+	this->texture = texture;
+
 	source.x = source.y = 0;
 	source.w = rect.w;
 	source.h = rect.h;

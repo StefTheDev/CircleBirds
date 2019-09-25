@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Player::Player(b2World& _world, SDL_Rect _rect, b2Vec2 initialForce) : Entity(_rect)
+Player::Player(b2World& _world, EntityType entityType, SDL_Rect _rect, bool isStatic, b2Vec2 initialForce, SDL_Texture* texture) : PhysicsEntity(_world, entityType, _rect, isStatic, texture)
 {
 	mouseX = 0;
 	mouseY = 0;
