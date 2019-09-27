@@ -27,7 +27,7 @@ PhysicsEntity::PhysicsEntity(b2World& _world, EntityType entityType, SDL_Rect _r
 
 	}
 
-	fixtureDef.density = isStatic ? 0.0f : 1.0f;
+	fixtureDef.density = isStatic ? 0.0f : 2.0f;
 	fixtureDef.friction = 1.0f;
 	fixtureDef.restitution = 0.45f;
 

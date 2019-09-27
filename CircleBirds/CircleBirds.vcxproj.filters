@@ -46,6 +46,27 @@
     <Filter Include="Header Files\Listeners">
       <UniqueIdentifier>{5619a451-0163-442c-8c46-1b63814bd95d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Entities\Materials">
+      <UniqueIdentifier>{984e81c2-5171-4e6c-87de-43e2c9e6b0c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entities\Enemies">
+      <UniqueIdentifier>{acd694b2-8db9-4285-9494-f17dadb5724f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entities\Player">
+      <UniqueIdentifier>{72249508-654b-43bf-8f2b-d7b18c04c14a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entities\UI">
+      <UniqueIdentifier>{0bea69e2-b3d2-48b6-945d-90f24d6327c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities\Enemies">
+      <UniqueIdentifier>{18a6854c-2cdf-4927-8b0b-bbd5c32d92ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities\Player">
+      <UniqueIdentifier>{cc66cf67-0146-4422-b003-93fe928ef126}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities\UI">
+      <UniqueIdentifier>{2c79b4a0-70c9-4fd2-b2b8-7cea32931568}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -66,14 +87,8 @@
     <ClCompile Include="GameManager.cpp">
       <Filter>Source Files\Managers</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files\Entities</Filter>
-    </ClCompile>
     <ClCompile Include="Utilities.cpp">
       <Filter>Source Files\Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="TextLabel.cpp">
-      <Filter>Source Files\Entities</Filter>
     </ClCompile>
     <ClCompile Include="TextureManager.cpp">
       <Filter>Source Files\Managers</Filter>
@@ -81,14 +96,20 @@
     <ClCompile Include="Scene.cpp">
       <Filter>Source Files\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="Pig.cpp">
+      <Filter>Source Files\Entities\Enemies</Filter>
+    </ClCompile>
     <ClCompile Include="PhysicsEntity.cpp">
-      <Filter>Source Files\Entities</Filter>
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Entities\Player</Filter>
     </ClCompile>
     <ClCompile Include="PlayerHandler.cpp">
-      <Filter>Source Files\Entities</Filter>
+      <Filter>Source Files\Entities\Player</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>Source Files\Entities</Filter>
+    <ClCompile Include="TextLabel.cpp">
+      <Filter>Source Files\Entities\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -110,29 +131,35 @@
     <ClInclude Include="GameManager.h">
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files\Entities</Filter>
-    </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>Header Files\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="TextLabel.h">
-      <Filter>Header Files\Entities</Filter>
     </ClInclude>
     <ClInclude Include="TextureManager.h">
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
-    <ClInclude Include="PhysicsEntity.h">
-      <Filter>Header Files\Entities</Filter>
-    </ClInclude>
     <ClInclude Include="ContactListener.h">
       <Filter>Header Files\Listeners</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>Header Files\Entities</Filter>
+    <ClInclude Include="WoodPlank.h">
+      <Filter>Header Files\Entities\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="StoneBrick.h">
+      <Filter>Header Files\Entities\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Entities\Player</Filter>
     </ClInclude>
     <ClInclude Include="PlayerHandler.h">
-      <Filter>Header Files\Entities</Filter>
+      <Filter>Header Files\Entities\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="TextLabel.h">
+      <Filter>Header Files\Entities\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsEntity.h">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Pig.h">
+      <Filter>Header Files\Entities\Enemies</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

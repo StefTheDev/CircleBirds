@@ -27,8 +27,8 @@ bool MenuScene::Load()
 	SDL_QueryTexture(textureManager->GetTexture(QUIT_TEXT_SPRITE), NULL, NULL, &width, &height);
 	rect = SDL_Rect{ 100, 300, width, height };
 	entities.push_back(std::make_shared<TextLabel>([this] {
-		std::cout << "Quit clicked..." << std::endl;
-		}, rect, textureManager->GetTexture(QUIT_TEXT_SPRITE)));
+		GameManager::GetInstance()->Clean();
+	}, rect, textureManager->GetTexture(QUIT_TEXT_SPRITE)));
 
 	return Scene::Load(); 
 }

@@ -11,6 +11,7 @@ public:
 	virtual void Listen(SDL_Event event) {}
 	virtual void Update();
 
+	void SetAngle(float angle);
 	void Texture(SDL_Texture* texture);
 
 protected:

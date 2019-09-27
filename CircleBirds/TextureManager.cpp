@@ -30,31 +30,27 @@ void TextureManager::Load(SDL_Renderer* renderer)
 	std::shared_ptr<Sprite> sprite = nullptr;
 
 	sprite = std::make_shared <Sprite>(renderer);
-	sprite->LoadImageFromFile("Resources/Sprites/Birds/Red.png");
+	sprite->LoadImageFromFile("Resources/Sprites/Characters/Red.png");
 	sprites.push_back(sprite);
 	
 	sprite = std::make_shared <Sprite>(renderer);
-	sprite->LoadImageFromFile("Resources/Sprites/Birds/Chuck.png");
+	sprite->LoadImageFromFile("Resources/Sprites/Characters/Chuck.png");
 	sprites.push_back(sprite);
 
 	sprite = std::make_shared <Sprite>(renderer);
-	sprite->LoadImageFromFile("Resources/Sprites/Birds/Bluey.png");
+	sprite->LoadImageFromFile("Resources/Sprites/Characters/Bluey.png");
 	sprites.push_back(sprite);
 
 	sprite = std::make_shared <Sprite>(renderer);
-	sprite->LoadImageFromFile("Resources/Sprites/Platforms/Ice.png");
+	sprite->LoadImageFromFile("Resources/Sprites/Characters/Pig.png");
 	sprites.push_back(sprite);
 
 	sprite = std::make_shared <Sprite>(renderer);
-	sprite->LoadImageFromFile("Resources/Sprites/Platforms/Wood.png");
+	sprite->LoadImageFromFile("Resources/Sprites/Materials/Stone-Brick.png");
 	sprites.push_back(sprite);
 
 	sprite = std::make_shared <Sprite>(renderer);
-	sprite->LoadImageFromFile("Resources/Sprites/Platforms/Stone.png");
-	sprites.push_back(sprite);
-
-	sprite = std::make_shared <Sprite>(renderer);
-	sprite->LoadImageFromFile("Resources/Sprites/Planks/Wood-Plank.png");
+	sprite->LoadImageFromFile("Resources/Sprites/Materials/Wood-Plank.png");
 	sprites.push_back(sprite);
 
 	sprite = std::make_shared <Sprite>(renderer);
