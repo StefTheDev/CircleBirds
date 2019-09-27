@@ -1,9 +1,6 @@
 #pragma once
 
-#ifndef SCENE_H
-#define SCENE_H
-
-#include "TextureManager.h"
+#include "Utilities.h"
 
 const int WINDOW_WIDTH = 1280;
 const int WINDOW_HEIGHT = 800;
@@ -25,7 +22,6 @@ public:
 
 	void AddEntity(std::shared_ptr<Entity> _entity);
 
-	std::shared_ptr<TextureManager> GetTextureManager();
 
 	std::string ToString();
 
@@ -35,7 +31,6 @@ private:
 protected:
 	std::vector<std::shared_ptr<Entity>> entities;
 
-	std::shared_ptr<TextureManager> textureManager;
+
 };
 
-#endif

@@ -1,6 +1,6 @@
 #include "TextureManager.h"
 
-std::shared_ptr<TextureManager> TextureManager::textureManager = nullptr;
+TextureManager* TextureManager::textureManager = nullptr;
 
 TextureManager::TextureManager()
 {
@@ -9,19 +9,20 @@ TextureManager::TextureManager()
 
 TextureManager::~TextureManager()
 {
-	for (auto& font : fonts) {
-		TTF_CloseFont(font);
-	}
+	delete textureManager;
 }
 
-std::shared_ptr<TextureManager> TextureManager::GetInstance()
+TextureManager* TextureManager::GetInstance()
 {
-	if (textureManager == nullptr) textureManager = std::make_shared<TextureManager>();
+	if (textureManager == nullptr) {
+		textureManager = new TextureManager();
+	}
 	return textureManager;
 }
 
 void TextureManager::Load(SDL_Renderer* renderer)
 {
+
 	//FONTS
 	fonts.push_back(TTF_OpenFont("Resources/Fonts/ARIAL_BOLD.TTF", 64));
 	fonts.push_back(TTF_OpenFont("Resources/Fonts/FEASFBI_.TTF", 80));
@@ -71,11 +72,11 @@ void TextureManager::Load(SDL_Renderer* renderer)
 
 
 	sprite = std::make_shared <Sprite>(renderer);
-	sprite->LoadText("Play", fonts[ANGRY_FONT], SDL_Color{ 255, 255, 255 });
+	sprite->LoadText("Level 1", fonts[ANGRY_FONT], SDL_Color{ 255, 255, 255 });
 	sprites.push_back(sprite);
 
 	sprite = std::make_shared <Sprite>(renderer);
-	sprite->LoadText("Quit", fonts[ANGRY_FONT], SDL_Color{ 255, 255, 255 });
+	sprite->LoadText("Level 2", fonts[ANGRY_FONT], SDL_Color{ 255, 255, 255 });
 	sprites.push_back(sprite);
 }
 

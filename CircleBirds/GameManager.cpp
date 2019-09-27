@@ -29,7 +29,7 @@ GameManager* GameManager::GetInstance()
 
 GameManager::~GameManager()
 {
-
+	delete instance;
 }
 
 bool GameManager::Initialise()
@@ -41,52 +41,42 @@ bool GameManager::Initialise()
 	int imageFlags = IMG_INIT_JPG | IMG_INIT_PNG;
 	if (!IMG_Init(imageFlags) & imageFlags) return false;
 
-
 	if (TTF_Init() == -1) return false;
-
-	scenes.push_back(std::make_shared<MenuScene>());
-	scenes.push_back(std::make_shared<GameScene>());
-
-	TextureManager::GetInstance()->Load(renderer);
 
 	return Switch(MENU);
 }
 
 void GameManager::Render()
 {
-	if (gameState != EXIT) {
-		SDL_RenderClear(renderer);
+	SDL_RenderClear(renderer);
 
-		scenes[gameState]->Render(renderer);
+	if (gameState != EXIT) scene->Render(renderer);
 
-		SDL_RenderPresent(renderer);
-	}
+	SDL_RenderPresent(renderer);
 }
 
 void GameManager::HandleEvents()
 {
-	if (gameState != EXIT) {
-		SDL_Event event;
-		SDL_PollEvent(&event);
-		scenes[gameState]->Listen(event);
-	}
+	SDL_Event event;
+	SDL_PollEvent(&event);
+
+	if (gameState != EXIT)scene->Listen(event);
 }
 
 void GameManager::Update()
 {
-	if (gameState != EXIT) {
-		timeLastFrame = timeCurrentFrame;
-		timeCurrentFrame = SDL_GetPerformanceCounter();
+	timeLastFrame = timeCurrentFrame;
+	timeCurrentFrame = SDL_GetPerformanceCounter();
 
-		DELTA_TIME = (float)((timeCurrentFrame - timeLastFrame) / (float)SDL_GetPerformanceFrequency());
-		if (DELTA_TIME > 0.3f) DELTA_TIME = 0.3f;
-		scenes[gameState]->Update();
+	DELTA_TIME = (float)((timeCurrentFrame - timeLastFrame) / (float)SDL_GetPerformanceFrequency());
+	if (DELTA_TIME > 0.3f) DELTA_TIME = 0.3f;
+	if (gameState != EXIT) scene->Update();
 
-		SDL_GetMouseState(&mouseX, &mouseY);
+	SDL_GetMouseState(&mouseX, &mouseY);
 
-		std::string string = "Circle Birds | " + scenes[gameState]->ToString() + " | Mouse Position: x:" + std::to_string(mouseX) + ", y:" + std::to_string(mouseY);
-		SDL_SetWindowTitle(window, string.c_str());
-	}
+	std::string string = "Circle Birds | " + scene->ToString() + " | Mouse Position: x:" + std::to_string(mouseX) + ", y:" + std::to_string(mouseY);
+	SDL_SetWindowTitle(window, string.c_str());
+
 }
 
 void GameManager::Clean()
@@ -114,6 +104,19 @@ GameState GameManager::GetState() const
 
 bool GameManager::Switch(GameState _gameState)
 {
-	 gameState = _gameState;
-	return scenes[gameState]->Load();
+	gameState = _gameState;
+
+	switch (gameState)
+	{
+		case MENU: {
+			scene = std::make_shared<MenuScene>();
+		} break;
+		case LEVEL1: {
+			scene = std::make_shared<GameScene>();
+		} break;
+	}
+
+	TextureManager::GetInstance()->Load(renderer);
+	
+	return scene->Load();
 }

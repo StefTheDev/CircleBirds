@@ -18,8 +18,8 @@ enum SpriteTexture
 	BACKGROUND_SPRITE,
 	GROUND_SPRITE,
 	LOGO_SPRITE,
-	PLAY_TEXT_SPRITE,
-	QUIT_TEXT_SPRITE,
+	LEVEL1_TEXT_SPRITE,
+	LEVEL2_TEXT_SPRITE,
 };
 
 class TextureManager
@@ -27,7 +27,7 @@ class TextureManager
 public:
 	TextureManager();
 	~TextureManager();
-	static std::shared_ptr<TextureManager> GetInstance();
+	static TextureManager* GetInstance();
 
 	void Load(SDL_Renderer* renderer);
 
@@ -37,6 +37,6 @@ private:
 	std::vector<std::shared_ptr<Sprite>> sprites;
 	std::vector<TTF_Font*> fonts;
 
-	static std::shared_ptr<TextureManager> textureManager;
+	static TextureManager* textureManager;
 };
 

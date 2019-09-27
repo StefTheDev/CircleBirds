@@ -51,10 +51,10 @@ void PlayerHandler::Listen(SDL_Event event)
 					std::shared_ptr<Player> newPlayer = std::make_shared<Player>(*world, BOX_ENTITY, destination, false,
 						0.5f * PIXEL_TO_METER * (catapultLocation - (b2Vec2{ static_cast<float>(destination.x),
 							static_cast<float>(destination.y) } +b2Vec2{ source.w * 0.5f, source.h * 0.5f }
-					)), scene->GetTextureManager()->GetTexture(currentTexture));
+					)), TextureManager::GetInstance()->GetTexture(currentTexture));
 
 					currentTexture = textures[std::rand() % 3];
-					Texture(scene->GetTextureManager()->GetTexture(currentTexture));
+					Texture(TextureManager::GetInstance()->GetTexture(currentTexture));
 
 					scene->AddEntity(newPlayer);
 					destination.x = catapultLocation.x - source.w * 0.5f;

@@ -16,7 +16,7 @@ Entity::Entity(SDL_Rect rect, SDL_Texture* texture)
 
 Entity::~Entity()
 {
-	SDL_DestroyTexture(texture);
+
 }
 
 void Entity::Render(SDL_Renderer * renderer)

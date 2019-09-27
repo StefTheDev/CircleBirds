@@ -4,9 +4,6 @@
 Scene::Scene(std::string string)
 {
 	this->string = string;
-
-
-	textureManager = TextureManager::GetInstance();
 }
 
 Scene::~Scene()
@@ -59,11 +56,6 @@ bool Scene::Unload()
 void Scene::AddEntity(std::shared_ptr<Entity> _entity)
 {
 	entities.push_back(_entity);
-}
-
-std::shared_ptr<TextureManager> Scene::GetTextureManager()
-{
-	return textureManager;
 }
 
 std::string Scene::ToString()
