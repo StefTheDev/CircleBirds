@@ -2,11 +2,13 @@
 
 
 int main(int argc, char* argv[]) {
-	std::unique_ptr<GameManager> gameManager = std::make_unique<GameManager>("Circle Birds");
+	GameManager* gameManager = GameManager::GetInstance();
 
 	if (!gameManager->Initialise()) return 0;
 
 	Uint32 startFrame, timeFrame;
+
+	atexit(SDL_Quit);
 
 	while (gameManager->GetState() != EXIT)
 	{

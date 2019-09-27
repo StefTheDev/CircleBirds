@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Player::Player(b2World& _world, SDL_Rect _rect, b2Vec2 initialForce) : Entity(_rect)
+Player::Player(b2World& _world, EntityType entityType, SDL_Rect _rect, bool isStatic, b2Vec2 initialForce, SDL_Texture* texture) : PhysicsEntity(_world, entityType, _rect, isStatic, texture)
 {
 	mouseX = 0;
 	mouseY = 0;
@@ -10,7 +10,7 @@ Player::Player(b2World& _world, SDL_Rect _rect, b2Vec2 initialForce) : Entity(_r
 	bodyDef.position.Set((_rect.x + _rect.w / 2.0f) * PIXEL_TO_METER, (_rect.y + _rect.h / 2.0f) * PIXEL_TO_METER);
 
 	bodyDef.type = b2_dynamicBody;
-
+	
 	b2CircleShape shapeBox;
 
 	shapeBox.m_p = b2Vec2(0.0f, 0.0f);

@@ -1,13 +1,13 @@
 #include "PhysicsEntity.h"
 
-PhysicsEntity::PhysicsEntity(b2World& _world, EntityType entityType, SDL_Rect _rect, bool isStatic) : Entity(_rect)
+PhysicsEntity::PhysicsEntity(b2World& _world, EntityType entityType, SDL_Rect _rect, bool isStatic, SDL_Texture* texture) : Entity(_rect, texture)
 {
 	b2BodyDef bodyDef;
 
 	bodyDef.position.Set((_rect.x + _rect.w / 2.0f) * PIXEL_TO_METER, (_rect.y + _rect.h / 2.0f) * PIXEL_TO_METER);
 
 	bodyDef.type = isStatic ? b2_staticBody : b2_dynamicBody;
-
+	
 	b2FixtureDef fixtureDef;
 
 	b2CircleShape circleShape;
@@ -27,12 +27,13 @@ PhysicsEntity::PhysicsEntity(b2World& _world, EntityType entityType, SDL_Rect _r
 
 	}
 
-	fixtureDef.density = isStatic ? 0.0f : 1.0f;
+	fixtureDef.density = isStatic ? 0.0f : 2.0f;
 	fixtureDef.friction = 1.0f;
+	fixtureDef.restitution = 0.45f;
 
 	body = _world.CreateBody(&bodyDef);
 	body->SetAngularDamping(0.2f);
-	body->SetLinearDamping(0.2f);
+	body->SetLinearDamping(0.1f);
 	body->CreateFixture(&fixtureDef);
 }
 

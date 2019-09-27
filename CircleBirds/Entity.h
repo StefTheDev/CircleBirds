@@ -4,14 +4,15 @@
 class Entity
 {
 public:
-	Entity(SDL_Rect rect);
+	Entity(SDL_Rect rect, SDL_Texture* texture);
 	~Entity();
 
 	virtual void Render(SDL_Renderer * renderer);
 	virtual void Listen(SDL_Event event) {}
 	virtual void Update();
 
-	void Texture(SDL_Texture * texture);
+	void SetAngle(float angle);
+	void Texture(SDL_Texture* texture);
 
 protected:
 	SDL_Texture* texture = nullptr;

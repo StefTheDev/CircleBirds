@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <functional>
 #include <thread>
+#include <stack>
 #include <condition_variable>
 
 //Dependency Includes

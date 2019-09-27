@@ -1,6 +1,6 @@
 #include "TextLabel.h"
 
-TextLabel::TextLabel(std::function<void()> onClick, SDL_Rect rect) : Entity(rect)
+TextLabel::TextLabel(std::function<void()> onClick, SDL_Rect rect, SDL_Texture* texture) : Entity(rect, texture)
 {
 	this->onClick = onClick;
 }
@@ -17,10 +17,10 @@ void TextLabel::Listen(SDL_Event event)
 	{
 		case SDL_MOUSEMOTION: {
 			if (IsHover(event.motion.x, event.motion.y)) {
-				SDL_SetTextureColorMod(texture, 150, 150, 150);
+				SDL_SetTextureColorMod(texture, 80, 80, 80);
 			}
 			else {
-				SDL_SetTextureColorMod(texture, 50, 50, 50);
+				SDL_SetTextureColorMod(texture, 250, 250, 250);
 			}
 			break;
 		}

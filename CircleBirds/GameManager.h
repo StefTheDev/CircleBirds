@@ -16,7 +16,9 @@ enum GameState {
 class GameManager
 {
 public:
-	GameManager(std::string string);
+	
+	static GameManager* GetInstance();
+
 	~GameManager();
 
 	bool Initialise();
@@ -42,5 +44,10 @@ private:
 	int mouseX, mouseY;
 	Uint64 timeCurrentFrame, timeLastFrame;
 
-	std::vector<std::unique_ptr<Scene>> scenes; 
+	std::vector<std::shared_ptr<Scene>> scenes; 
+
+
+	GameManager(std::string string);
+	static GameManager* instance;
+
 };

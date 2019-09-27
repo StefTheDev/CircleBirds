@@ -1,7 +1,9 @@
 #include "Entity.h"
 
-Entity::Entity(SDL_Rect rect)
+Entity::Entity(SDL_Rect rect, SDL_Texture* texture)
 {
+	this->texture = texture;
+
 	source.x = source.y = 0;
 	source.w = rect.w;
 	source.h = rect.h;
@@ -27,7 +29,12 @@ void Entity::Update()
 
 }
 
-void Entity::Texture(SDL_Texture * texture)
+void Entity::SetAngle(float angle)
+{
+	this->angle = angle;
+}
+
+void Entity::Texture(SDL_Texture* texture)
 {
 	this->texture = texture;
 }
