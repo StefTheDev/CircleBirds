@@ -7,7 +7,7 @@ Sprite::Sprite(SDL_Renderer * renderer)
 
 Sprite::~Sprite()
 {
-	SDL_DestroyTexture(texture);
+
 }
 
 bool Sprite::LoadImageFromFile(std::string fileName)

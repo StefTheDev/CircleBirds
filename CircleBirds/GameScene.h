@@ -1,6 +1,9 @@
 #pragma once
 #include "Scene.h"
 
+//UI
+#include "TextLabel.h"
+
 //Entities
 #include "Pig.h"
 #include "PlayerHandler.h"
@@ -21,7 +24,7 @@ public:
 	void GenerateTower(int xOffset, int yOffset);
 
 private:
-	b2World * world;
+	b2World * world = nullptr;
 	std::vector<Entity> birds;
 };
 

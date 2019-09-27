@@ -9,7 +9,8 @@ const int FRAME_DELAY = 1000 / FPS;
 
 enum GameState {
 	MENU,
-	INGAME,
+	LEVEL1,
+	LEVEL2,
 	EXIT
 };
 
@@ -34,20 +35,20 @@ public:
 	GameState GetState() const;
 
 	bool Switch(GameState gameState);
-
+	bool switchFlag = false;
+	GameState gameState;
 private:
 	SDL_Window * window;
 	SDL_Renderer * renderer;
 
-	GameState gameState;
 
 	int mouseX, mouseY;
 	Uint64 timeCurrentFrame, timeLastFrame;
 
-	std::vector<std::shared_ptr<Scene>> scenes; 
+	std::shared_ptr<Scene> scene; 
 
 
 	GameManager(std::string string);
 	static GameManager* instance;
-
+	
 };

@@ -1,4 +1,5 @@
 #include "GameScene.h"
+#include "GameManager.h"
 
 GameScene::GameScene() : Scene("Game Scene")
 {
@@ -12,13 +13,13 @@ GameScene::~GameScene()
 
 bool GameScene::Load()
 {
-	entities.push_back(std::make_shared<Entity>(SDL_Rect{ 0, 0, 1280, 800 }, textureManager->GetTexture(BACKGROUND_SPRITE)));
+	entities.push_back(std::make_shared<Entity>(SDL_Rect{ 0, 0, 1280, 800 }, TextureManager::GetInstance()->GetTexture(BACKGROUND_SPRITE)));
 	
-	std::shared_ptr<PhysicsEntity> ground = std::make_shared<PhysicsEntity>(*world, BOX_ENTITY, SDL_Rect{ 0, 680, 1280, 120 }, true, textureManager->GetTexture(GROUND_SPRITE));
+	std::shared_ptr<PhysicsEntity> ground = std::make_shared<PhysicsEntity>(*world, BOX_ENTITY, SDL_Rect{ 0, 680, 1280, 120 }, true, TextureManager::GetInstance()->GetTexture(GROUND_SPRITE));
 	entities.push_back(ground);
 
-	entities.push_back(std::make_shared<Entity>(SDL_Rect{ 120, 550, 32, 80 }, textureManager->GetTexture(CATAPULT_SPRITE)));
-	entities.push_back(std::make_shared<Entity>(SDL_Rect{ 120, 630, 48, 48 }, textureManager->GetTexture(WOOD_PLANK_SPRITE)));
+	entities.push_back(std::make_shared<Entity>(SDL_Rect{ 120, 550, 32, 80 }, TextureManager::GetInstance()->GetTexture(CATAPULT_SPRITE)));
+	entities.push_back(std::make_shared<Entity>(SDL_Rect{ 120, 630, 48, 48 }, TextureManager::GetInstance()->GetTexture(WOOD_PLANK_SPRITE)));
 
 	GenerateTower(-100, 0);
 	GenerateTower(300, 0);
@@ -26,7 +27,7 @@ bool GameScene::Load()
 	entities.push_back(std::make_shared<Pig>(*world, SDL_Rect{ 435, 500, 32, 32 }));
 	entities.push_back(std::make_shared<Pig>(*world, SDL_Rect{ 835, 500, 32, 32 }));
 
-	entities.push_back(std::make_shared<PlayerHandler>(SDL_Rect{ 64, 536, 32, 32 }, world, std::shared_ptr<Scene>(this), textureManager->GetTexture(PLAYER_RED_SPRITE)));
+	entities.push_back(std::make_shared<PlayerHandler>(SDL_Rect{ 64, 536, 32, 32 }, world, std::shared_ptr<Scene>(this), TextureManager::GetInstance()->GetTexture(PLAYER_RED_SPRITE)));
 
 
 	b2Body* link = ground->GetBody();
@@ -69,13 +70,15 @@ bool GameScene::Load()
 		entities.push_back(entity);
 	}
 
+	int width, height;
+
+	SDL_QueryTexture(TextureManager::GetInstance()->GetTexture(MENU_TEXT_SPRITE), NULL, NULL, &width, &height);
 
 	return Scene::Load();
 }
 
 void GameScene::Update()
 {
-
 	world->Step(DELTA_TIME, 3, 8);
 	Scene::Update();
 }
