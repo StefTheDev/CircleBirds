@@ -29,7 +29,7 @@ void Entity::Update()
 
 }
 
-void Entity::Texture(SDL_Texture * texture)
+void Entity::Texture(SDL_Texture* texture)
 {
 	this->texture = texture;
 }

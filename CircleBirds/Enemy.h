@@ -2,13 +2,11 @@
 
 #include "PhysicsEntity.h"
 
-class Player : public PhysicsEntity
+class Enemy : public PhysicsEntity
 {
 public:
-	Player(b2World& _world, SDL_Rect _rect, b2Vec2 initialForce);
-	~Player();
-
-	void Update() override;
+	Enemy(b2World& _world, SDL_Rect _rect, SDL_Texture* texture);
+	~Enemy();
 
 private:
 	int mouseX, mouseY;

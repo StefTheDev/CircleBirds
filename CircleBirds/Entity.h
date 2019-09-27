@@ -11,7 +11,7 @@ public:
 	virtual void Listen(SDL_Event event) {}
 	virtual void Update();
 
-	void Texture(SDL_Texture * texture);
+	void Texture(SDL_Texture* texture);
 
 protected:
 	SDL_Texture* texture = nullptr;

@@ -3,6 +3,7 @@
 
 enum FontTexture {
 	ARIAL_FONT = 0,
+	ANGRY_FONT
 };
 
 enum SpriteTexture
@@ -17,6 +18,7 @@ enum SpriteTexture
 	CATAPULT_SPRITE,
 	BACKGROUND_SPRITE,
 	GROUND_SPRITE,
+	LOGO_SPRITE,
 	PLAY_TEXT_SPRITE,
 	QUIT_TEXT_SPRITE,
 };

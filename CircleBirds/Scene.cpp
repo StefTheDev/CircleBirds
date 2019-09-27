@@ -17,22 +17,30 @@ Scene::~Scene()
 void Scene::Listen(SDL_Event event)
 {
 	int entityCount = entities.size();
-	for (int i = 0; i < entityCount; i++){
-		entities[i]->Listen(event);
+	for (int i = 0; i < entityCount; i++) {
+		if (i < entities.size())  {
+			entities[i]->Listen(event);
+		}
 	}
 }
 
 void Scene::Render(SDL_Renderer * renderer)
 {
-	for (auto& entity : entities) {
-		entity->Render(renderer);
+	int entityCount = entities.size();
+	for (int i = 0; i < entityCount; i++) {
+		if (i < entities.size()) {
+			entities[i]->Render(renderer);
+		}
 	}
 }
 
 void Scene::Update()
 {
-	for (auto& entity : entities) {
-		entity->Update();
+	int entityCount = entities.size();
+	for (int i = 0; i < entityCount; i++) {
+		if (i < entities.size()) {
+			entities[i]->Update();
+		}
 	}
 }
 
@@ -44,7 +52,6 @@ bool Scene::Load()
 
 bool Scene::Unload()
 {
-	if (entities.empty()) return true;
 	entities.clear();
 	return true;
 }

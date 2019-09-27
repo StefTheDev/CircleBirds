@@ -13,10 +13,10 @@ public:
 	void SetColor(SDL_Color color);
 
 	SDL_Renderer* renderer;
-	SDL_Texture * GetTexture();
+	SDL_Texture* GetTexture();
 
 private:
-	SDL_Texture * texture = nullptr;
+	SDL_Texture* texture = nullptr;
 	int width, height;
 };
 

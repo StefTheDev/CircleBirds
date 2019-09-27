@@ -44,12 +44,12 @@ bool GameManager::Initialise()
 
 	if (TTF_Init() == -1) return false;
 
-	scenes.push_back(std::make_unique<MenuScene>());
-	scenes.push_back(std::make_unique<GameScene>());
+	scenes.push_back(std::make_shared<MenuScene>());
+	scenes.push_back(std::make_shared<GameScene>());
 
 	TextureManager::GetInstance()->Load(renderer);
 
-	return Switch(INGAME);
+	return Switch(MENU);
 }
 
 void GameManager::Render()
@@ -71,7 +71,6 @@ void GameManager::HandleEvents()
 
 void GameManager::Update()
 {
-
 
 	timeLastFrame = timeCurrentFrame;
 	timeCurrentFrame = SDL_GetPerformanceCounter();
@@ -108,8 +107,8 @@ GameState GameManager::GetState() const
 	return gameState;
 }
 
-bool GameManager::Switch(GameState gameState)
+bool GameManager::Switch(GameState _gameState)
 {
-	if (scenes[this->gameState]->Unload()) this->gameState = gameState;
-	return scenes[this->gameState]->Load();
+	 gameState = _gameState;
+	return scenes[gameState]->Load();
 }
