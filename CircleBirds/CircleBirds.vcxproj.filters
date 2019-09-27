@@ -113,6 +113,8 @@
     </ClCompile>
     <ClCompile Include="DestructibleEntity.cpp">
       <Filter>Source Files\Objects</Filter>
+    <ClCompile Include="GameScene2.cpp">
+      <Filter>Source Files\Scenes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -166,6 +168,8 @@
     </ClInclude>
     <ClInclude Include="DestructibleEntity.h">
       <Filter>Header Files\Objects</Filter>
+    <ClInclude Include="GameScene2.h">
+      <Filter>Header Files\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
