@@ -3,6 +3,7 @@
 //Scenes
 #include "MenuScene.h"
 #include "GameScene.h"
+#include "GameScene2.h"
 
 GameManager* GameManager::instance = nullptr;
 
@@ -45,7 +46,7 @@ bool GameManager::Initialise()
 	if (TTF_Init() == -1) return false;
 
 	scenes.push_back(std::make_shared<MenuScene>());
-	scenes.push_back(std::make_shared<GameScene>());
+	scenes.push_back(std::make_shared<GameScene2>());
 
 	TextureManager::GetInstance()->Load(renderer);
 
