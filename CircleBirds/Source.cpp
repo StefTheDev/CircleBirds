@@ -8,6 +8,8 @@ int main(int argc, char* argv[]) {
 
 	Uint32 startFrame, timeFrame;
 
+	atexit(SDL_Quit);
+
 	while (gameManager->GetState() != EXIT)
 	{
 		startFrame = SDL_GetTicks();

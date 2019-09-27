@@ -44,7 +44,7 @@ private:
 	int mouseX, mouseY;
 	Uint64 timeCurrentFrame, timeLastFrame;
 
-	std::vector<std::unique_ptr<Scene>> scenes; 
+	std::vector<std::shared_ptr<Scene>> scenes; 
 
 
 	GameManager(std::string string);

@@ -48,7 +48,7 @@ void PlayerHandler::Listen(SDL_Event event)
 			} break;
 			case SDL_MOUSEBUTTONUP: {
 				if (event.button.button == 1 && active) {
-					std::shared_ptr<Player> newPlayer = std::make_shared<Player>(*world, BOX_ENTITY,destination, false,
+					std::shared_ptr<Player> newPlayer = std::make_shared<Player>(*world, BOX_ENTITY, destination, false,
 						0.5f * PIXEL_TO_METER * (catapultLocation - (b2Vec2{ static_cast<float>(destination.x),
 							static_cast<float>(destination.y) } +b2Vec2{ source.w * 0.5f, source.h * 0.5f }
 					)), scene->GetTextureManager()->GetTexture(currentTexture));

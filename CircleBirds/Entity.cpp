@@ -29,7 +29,12 @@ void Entity::Update()
 
 }
 
-void Entity::Texture(SDL_Texture * texture)
+void Entity::SetAngle(float angle)
+{
+	this->angle = angle;
+}
+
+void Entity::Texture(SDL_Texture* texture)
 {
 	this->texture = texture;
 }

@@ -24,57 +24,58 @@ void TextureManager::Load(SDL_Renderer* renderer)
 {
 	//FONTS
 	fonts.push_back(TTF_OpenFont("Resources/Fonts/ARIAL_BOLD.TTF", 64));
+	fonts.push_back(TTF_OpenFont("Resources/Fonts/FEASFBI_.TTF", 80));
 
 	//TEXTURES
 	std::shared_ptr<Sprite> sprite = nullptr;
 
-	sprite = std::make_unique <Sprite>(renderer);
-	sprite->LoadImageFromFile("Resources/Sprites/Birds/Red.png");
+	sprite = std::make_shared <Sprite>(renderer);
+	sprite->LoadImageFromFile("Resources/Sprites/Characters/Red.png");
+	sprites.push_back(sprite);
+	
+	sprite = std::make_shared <Sprite>(renderer);
+	sprite->LoadImageFromFile("Resources/Sprites/Characters/Chuck.png");
 	sprites.push_back(sprite);
 
-	sprite = std::make_unique <Sprite>(renderer);
-	sprite->LoadImageFromFile("Resources/Sprites/Birds/Chuck.png");
+	sprite = std::make_shared <Sprite>(renderer);
+	sprite->LoadImageFromFile("Resources/Sprites/Characters/Bluey.png");
 	sprites.push_back(sprite);
 
-	sprite = std::make_unique <Sprite>(renderer);
-	sprite->LoadImageFromFile("Resources/Sprites/Birds/Bluey.png");
+	sprite = std::make_shared <Sprite>(renderer);
+	sprite->LoadImageFromFile("Resources/Sprites/Characters/Pig.png");
 	sprites.push_back(sprite);
 
-	sprite = std::make_unique <Sprite>(renderer);
-	sprite->LoadImageFromFile("Resources/Sprites/Platforms/Ice.png");
+	sprite = std::make_shared <Sprite>(renderer);
+	sprite->LoadImageFromFile("Resources/Sprites/Materials/Stone-Brick.png");
 	sprites.push_back(sprite);
 
-	sprite = std::make_unique <Sprite>(renderer);
-	sprite->LoadImageFromFile("Resources/Sprites/Platforms/Wood.png");
+	sprite = std::make_shared <Sprite>(renderer);
+	sprite->LoadImageFromFile("Resources/Sprites/Materials/Wood-Plank.png");
 	sprites.push_back(sprite);
 
-	sprite = std::make_unique <Sprite>(renderer);
-	sprite->LoadImageFromFile("Resources/Sprites/Platforms/Stone.png");
-	sprites.push_back(sprite);
-
-	sprite = std::make_unique <Sprite>(renderer);
-	sprite->LoadImageFromFile("Resources/Sprites/Planks/Wood-Plank.png");
-	sprites.push_back(sprite);
-
-	sprite = std::make_unique <Sprite>(renderer);
+	sprite = std::make_shared <Sprite>(renderer);
 	sprite->LoadImageFromFile("Resources/Sprites/General/Catapult.png");
 	sprites.push_back(sprite);
 
-	sprite = std::make_unique <Sprite>(renderer);
+	sprite = std::make_shared <Sprite>(renderer);
 	sprite->LoadImageFromFile("Resources/Sprites/General/Background.png");
 	sprites.push_back(sprite);
 
-	sprite = std::make_unique <Sprite>(renderer);
+	sprite = std::make_shared <Sprite>(renderer);
 	sprite->LoadImageFromFile("Resources/Sprites/General/Ground.png");
 	sprites.push_back(sprite);
 
-
-	sprite = std::make_unique <Sprite>(renderer);
-	sprite->LoadText("Play", fonts[ARIAL_FONT], SDL_Color{ 255, 255, 255 });
+	sprite = std::make_shared <Sprite>(renderer);
+	sprite->LoadImageFromFile("Resources/Sprites/General/Logo.png");
 	sprites.push_back(sprite);
 
-	sprite = std::make_unique <Sprite>(renderer);
-	sprite->LoadText("Quit", fonts[ARIAL_FONT], SDL_Color{ 255, 255, 255 });
+
+	sprite = std::make_shared <Sprite>(renderer);
+	sprite->LoadText("Play", fonts[ANGRY_FONT], SDL_Color{ 255, 255, 255 });
+	sprites.push_back(sprite);
+
+	sprite = std::make_shared <Sprite>(renderer);
+	sprite->LoadText("Quit", fonts[ANGRY_FONT], SDL_Color{ 255, 255, 255 });
 	sprites.push_back(sprite);
 }
 

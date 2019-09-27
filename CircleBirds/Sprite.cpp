@@ -30,7 +30,7 @@ void Sprite::SetColor(SDL_Color color)
 	SDL_SetTextureColorMod(texture, color.r, color.g, color.b);
 }
 
-SDL_Texture * Sprite::GetTexture()
+SDL_Texture* Sprite::GetTexture()
 {
 	return texture;
 }
