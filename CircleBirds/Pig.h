@@ -1,3 +1,4 @@
+#pragma once
 #include "PhysicsEntity.h"
 #include "TextureManager.h"
 
