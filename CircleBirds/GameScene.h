@@ -20,7 +20,7 @@ public:
 
 	bool Load() override;
 	void Update() override;
-
+	b2World* GetWorld() override { return world; };
 	void GenerateTower(int xOffset, int yOffset);
 
 private:

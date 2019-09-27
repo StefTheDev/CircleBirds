@@ -97,6 +97,13 @@ SDL_Renderer* GameManager::GetRenderer()
 	return renderer;
 }
 
+std::shared_ptr<Scene> GameManager::GetScene()
+{
+	return scene;
+}
+
+
+
 GameState GameManager::GetState() const
 {
 	return gameState;
@@ -112,6 +119,9 @@ bool GameManager::Switch(GameState _gameState)
 			scene = std::make_shared<MenuScene>();
 		} break;
 		case LEVEL1: {
+			scene = std::make_shared<GameScene>();
+		} break;
+		case LEVEL2: {
 			scene = std::make_shared<GameScene>();
 		} break;
 	}

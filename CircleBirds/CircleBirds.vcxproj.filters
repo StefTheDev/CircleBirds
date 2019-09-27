@@ -111,6 +111,9 @@
     <ClCompile Include="TextLabel.cpp">
       <Filter>Source Files\Entities\UI</Filter>
     </ClCompile>
+    <ClCompile Include="DestructibleEntity.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utilities.h">
@@ -160,6 +163,9 @@
     </ClInclude>
     <ClInclude Include="Pig.h">
       <Filter>Header Files\Entities\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="DestructibleEntity.h">
+      <Filter>Header Files\Objects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

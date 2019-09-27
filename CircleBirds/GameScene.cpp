@@ -1,7 +1,7 @@
 #include "GameScene.h"
 #include "GameManager.h"
 
-GameScene::GameScene() : Scene("Game Scene")
+GameScene::GameScene() : Scene("Level 1")
 {
 	world = new b2World(b2Vec2{ 0.0f, 3.2f });
 }
@@ -69,10 +69,6 @@ bool GameScene::Load()
 
 		entities.push_back(entity);
 	}
-
-	int width, height;
-
-	SDL_QueryTexture(TextureManager::GetInstance()->GetTexture(MENU_TEXT_SPRITE), NULL, NULL, &width, &height);
 
 	return Scene::Load();
 }

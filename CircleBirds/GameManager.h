@@ -31,6 +31,7 @@ public:
 
 	SDL_Window * GetWindow();
 	SDL_Renderer* GetRenderer();
+	std::shared_ptr<Scene> GetScene();
 
 	GameState GetState() const;
 
